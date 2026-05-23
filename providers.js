@@ -378,9 +378,17 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
         concentrationScore * 0.2
       );
 
+      // Add deterministic tie-breaker for unique scores based on provider combination
+      let uniqueHash = 0;
+      for (let i = 0; i < routeProviders.length; i++) {
+        const p = routeProviders[i];
+        uniqueHash += (p.name.length * 7 + i * 13) % 97;
+      }
+      const tieBreaker = (uniqueHash % 10) * 0.1; // 0.0 to 0.9
+
       routes.push({
         providers: { ...currentRoute },
-        score: finalScore,
+        score: finalScore + tieBreaker,
         diversityScore,
         concentrationScore
       });
@@ -415,7 +423,22 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
 
   // Sort routes by score and return top N
   routes.sort((a, b) => b.score - a.score);
-  return routes.slice(0, numRoutes);
+  const topRoutes = routes.slice(0, numRoutes);
+
+  // Ensure displayed scores are unique integers by rounding and adjusting
+  const usedScores = new Set();
+  topRoutes.forEach((route) => {
+    let displayScore = Math.round(route.score);
+    let offset = 0;
+    while (usedScores.has(displayScore) && offset < 10) {
+      displayScore--;
+      offset++;
+    }
+    usedScores.add(displayScore);
+    route.score = displayScore;
+  });
+
+  return topRoutes;
 };
 
 /* ---------- Lat/Lng lookup by name (loose match) ---------- */
