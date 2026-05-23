@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Supply Vector — Autonomous Supply Chain Intelligence</title>
+<link rel="stylesheet" href="oracle.css" />
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="shell">
+
+  <!-- Header -->
+  <header class="header" data-screen-label="01 Landing — Header">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      Supply Vector
+    </a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta" data-header-cta>
+      <a class="btn btn-primary" href="signup.html">Get Started</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" data-screen-label="01 Landing — Hero" style="position: relative; min-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 80px 24px;">
+
+    <div class="shapes" aria-hidden="true">
+      <div class="shape" style="--w: 600px; --h: 140px; --delay: 0.3s; --rotate: 12deg; top: 18%; left: -8%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(99,102,241,0.18);"></div></div>
+      </div>
+      <div class="shape" style="--w: 500px; --h: 120px; --delay: 0.5s; --rotate: -15deg; top: 72%; right: -3%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(244,63,94,0.18);"></div></div>
+      </div>
+      <div class="shape" style="--w: 300px; --h: 80px; --delay: 0.4s; --rotate: -8deg; bottom: 8%; left: 8%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(139,92,246,0.18);"></div></div>
+      </div>
+      <div class="shape" style="--w: 200px; --h: 60px; --delay: 0.6s; --rotate: 20deg; top: 12%; right: 18%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(245,158,11,0.18);"></div></div>
+      </div>
+      <div class="shape" style="--w: 150px; --h: 44px; --delay: 0.7s; --rotate: -25deg; top: 7%; left: 22%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(34,211,238,0.18);"></div></div>
+      </div>
+    </div>
+
+    <div class="edge-fade"></div>
+
+    <div style="position: relative; z-index: 5; max-width: 920px; margin: 0 auto; text-align: center;">
+
+      <div class="fade-up" style="--d: 0s; margin-bottom: 36px;">
+        <span class="badge">
+          <span class="badge-dot"></span>
+          <span>Supply Vector</span>
+        </span>
+      </div>
+
+      <h1 class="h1 fade-up" style="--d: 0.2s; margin-bottom: 28px;">
+        <span class="solid-text">The autonomous</span><br/>
+        <span class="grad-text">supply chain oracle.</span>
+      </h1>
+
+      <p class="lede fade-up" style="--d: 0.4s; margin: 0 auto 40px;">
+        Redesign your logistics in real time. Simulate global risk. Tune for cost, speed, or resilience — and watch the network rebalance itself.
+      </p>
+
+      <div class="fade-up" style="--d: 0.6s; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a class="glass-btn glass-btn-lg glass-btn-accent" href="signup.html">
+          <span class="glass-btn-lens"></span>
+          <span class="glass-btn-text">Get Started →</span>
+        </a>
+        <a class="glass-btn glass-btn-lg" href="about.html">
+          <span class="glass-btn-lens"></span>
+          <span class="glass-btn-text">Learn More</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Feature Grid using Frame -->
+  <section class="section" id="features" data-screen-label="01 Landing — Features">
+    <div class="container">
+
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 80px;">
+        <span class="badge" style="margin-bottom: 24px;">
+          <span class="badge-dot indigo"></span>
+          <span>Core mechanics</span>
+        </span>
+        <h2 class="h2" style="margin: 8px 0 20px;">
+          <span class="solid-text">Three engines.</span><br/>
+          <span class="grad-text">One adaptive network.</span>
+        </h2>
+        <p class="lede" style="margin: 0 auto;">
+          Supply Vector listens, forecasts, and adapts — continuously, against the priorities you set.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;" id="feature-grid">
+
+        <div class="frame">
+          <div class="frame-panel">
+            <span class="badge" style="margin-bottom: 20px;">
+              <span class="badge-dot indigo"></span>
+              <span>01 · Ingest</span>
+            </span>
+            <h3 class="h3" style="margin-bottom: 8px;">Real-world data ingestion.</h3>
+            <p class="body">Tariffs, port congestion, weather, and geopolitics stream into the graph the moment they change.</p>
+          </div>
+          <div class="frame-panel">
+            <ul class="feature-list">
+              <li>Customs &amp; tariff feeds</li>
+              <li>Maritime AIS · weather</li>
+              <li>Geopolitical risk indices</li>
+              <li>Tier-2 supplier signals</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="frame">
+          <div class="frame-panel">
+            <span class="badge" style="margin-bottom: 20px;">
+              <span class="badge-dot violet"></span>
+              <span>02 · Forecast</span>
+            </span>
+            <h3 class="h3" style="margin-bottom: 8px;">Predictive risk modeling.</h3>
+            <p class="body">Forecast bottlenecks, supplier defaults, and price shocks weeks before they hit your floor.</p>
+          </div>
+          <div class="frame-panel">
+            <ul class="feature-list">
+              <li>Bottleneck probability</li>
+              <li>Lead-time distributions</li>
+              <li>Supplier exposure scoring</li>
+              <li>Stress tests on demand</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="frame">
+          <div class="frame-panel">
+            <span class="badge" style="margin-bottom: 20px;">
+              <span class="badge-dot"></span>
+              <span>03 · Adapt</span>
+            </span>
+            <h3 class="h3" style="margin-bottom: 8px;">Continuous real-time adaptation.</h3>
+            <p class="body">When the world moves, routes, inventory, and sourcing re-solve against your priority weights.</p>
+          </div>
+          <div class="frame-panel">
+            <ul class="feature-list">
+              <li>Live re-routing</li>
+              <li>Inventory rebalancing</li>
+              <li>Multi-objective solver</li>
+              <li>Audit-grade decision log</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Priorities strip -->
+  <section class="section" data-screen-label="01 Landing — Priorities">
+    <div class="container" style="text-align: center;">
+      <span class="badge" style="margin-bottom: 24px;">
+        <span class="badge-dot amber"></span>
+        <span>Optimize for what matters</span>
+      </span>
+      <h2 class="h2" style="margin: 8px auto 56px; max-width: 22ch;">
+        <span class="solid-text">Nine levers.</span>
+        <span class="grad-text">You set the weights.</span>
+      </h2>
+
+      <div class="prio-grid">
+        <div class="prio-chip">Cost</div>
+        <div class="prio-chip">Speed</div>
+        <div class="prio-chip">Resilience</div>
+        <div class="prio-chip">Sustainability</div>
+        <div class="prio-chip">Ethics</div>
+        <div class="prio-chip">Tariffs</div>
+        <div class="prio-chip">Emissions</div>
+        <div class="prio-chip">Supplier Risk</div>
+        <div class="prio-chip">Geopolitics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="section" id="faq" data-screen-label="01 Landing — FAQ">
+    <div class="container">
+
+      <div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;" id="faq-grid">
+
+        <div>
+          <span class="badge" style="margin-bottom: 20px;">
+            <span class="badge-dot cyan"></span>
+            <span>FAQ</span>
+          </span>
+          <h2 class="h2" style="margin-bottom: 20px;">
+            <span class="solid-text">Common</span>
+            <span class="grad-text">questions.</span>
+          </h2>
+          <p class="body">Everything from data sources to onboarding to security. If we missed yours, the team replies within a day.</p>
+        </div>
+
+        <div class="accordion">
+          <details class="accordion-item" open>
+            <summary>
+              <span>How quickly can Supply Vector integrate with our existing ERP?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion-content">
+              Most pilots are reading from SAP, Oracle, or NetSuite within a week. We bring read-only connectors for the common stacks and run alongside your current planners until you trust the recommendations.
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>What real-world data sources does the model use?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion-content">
+              Customs and tariff schedules, NOAA and ECMWF weather, maritime AIS feeds, port congestion indices, geopolitical risk scores, plus the public-record health of every supplier and Tier-2 in your graph.
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>How do you weigh competing priorities like cost vs. emissions?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion-content">
+              You set the weights — nine levers covering cost, speed, resilience, sustainability, ethics, tariffs, emissions, supplier risk, and geopolitics. The solver is multi-objective, so trade-offs are explicit rather than hidden in a black box.
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>Where does my data live, and who can see it?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion-content">
+              SOC 2 Type II controls, optional single-tenant deployment in your cloud, and zero training on customer data. Every recommendation carries an audit-grade decision log so your finance and compliance teams can trace any change.
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>Do I need to commit to a full network redesign on day one?</span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="accordion-content">
+              No. Most teams start with a single lane or product family, validate the recommendations against historical disruptions, and expand only when the model has earned trust.
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="section closing" data-screen-label="01 Landing — Closing" style="position: relative; padding-top: 120px; padding-bottom: 140px; overflow: hidden;">
+
+    <div class="shapes" aria-hidden="true">
+      <div class="shape" style="--w: 400px; --h: 100px; --delay: 0s; --rotate: 10deg; top: 20%; left: -5%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(99,102,241,0.14);"></div></div>
+      </div>
+      <div class="shape" style="--w: 320px; --h: 86px; --delay: 0.2s; --rotate: -12deg; bottom: 15%; right: -3%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(244,63,94,0.14);"></div></div>
+      </div>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 4; text-align: center;">
+      <span class="badge" style="margin-bottom: 24px;">
+        <span class="badge-dot emerald"></span>
+        <span>Begin</span>
+      </span>
+      <h2 class="h2" style="margin: 8px auto 24px; max-width: 18ch;">
+        <span class="solid-text">Initialize your</span>
+        <span class="grad-text">first simulation.</span>
+      </h2>
+      <p class="lede" style="margin: 0 auto 40px;">Three minutes to a vulnerability scan. No procurement integration required.</p>
+      <a class="glass-btn glass-btn-lg glass-btn-accent" href="signup.html">
+        <span class="glass-btn-lens"></span>
+        <span class="glass-btn-text">Analyze My Supply Chain →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div>© 2026 Supply Vector</div>
+    <div>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+      <a href="signup.html">Sign in</a>
+    </div>
+  </footer>
+</div>
+
+<style>
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-40);
+  }
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .feature-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: var(--ink-30);
+  }
+
+  .prio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .prio-chip {
+    padding: 16px 18px;
+    border-radius: 9999px;
+    border: 1px solid var(--surface-08);
+    background: var(--surface-03);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-80);
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-up 1s cubic-bezier(0.25, 0.4, 0.25, 1) var(--d, 0s) forwards;
+  }
+  @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 880px) {
+    #feature-grid { grid-template-columns: 1fr !important; }
+    #faq-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  }
+</style>
+
+</body>
+</html>

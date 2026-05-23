@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Simulator — Supply Vector</title>
+<link rel="stylesheet" href="oracle.css" />
+<script src="app.js" defer></script>
+<script src="providers.js" defer></script>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="shell">
+
+  <header class="header" data-screen-label="06 Simulator — Header">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      Supply Vector
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-cta" data-header-cta></div>
+  </header>
+
+  <!-- Intro + product type -->
+  <section class="section" style="padding-top: 40px; padding-bottom: 24px;" data-screen-label="06 Simulator — Intro">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+        <div>
+          <span class="badge" style="margin-bottom: 12px;">
+            <span class="badge-dot indigo"></span>
+            <span id="badge-label">Supply Chain · Clothing</span>
+          </span>
+          <h1 class="h2" style="margin: 0;">
+            <span class="solid-text">Configure your</span>
+            <span class="grad-text">supply chain.</span>
+          </h1>
+          <p class="lede" style="margin-top: 16px; margin-bottom: 0;">Define your route, select components, set priorities, and let the optimizer find the best supply chain routes for your needs.</p>
+        </div>
+
+        <div class="field" style="min-width: 240px;">
+          <label>Product type</label>
+          <select id="product-type-select">
+            <option value="Clothing">Clothing</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Food &amp; Beverage">Food &amp; Beverage</option>
+            <option value="Furniture &amp; Home">Furniture &amp; Home</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Pharmaceuticals">Pharmaceuticals</option>
+            <option value="Aerospace">Aerospace</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route bar -->
+  <section class="section" style="padding-top: 24px; padding-bottom: 16px;" data-screen-label="06 Simulator — Route bar">
+    <div class="container">
+      <div class="frame">
+        <div class="frame-panel route-bar">
+          <div class="route-field">
+            <label>Origin (factory / hub)</label>
+            <input type="text" id="origin" list="city-list" placeholder="Type a city — e.g. Ho Chi Minh" value="Ho Chi Minh, VN" autocomplete="off"/>
+          </div>
+          <div class="route-arrow">→</div>
+          <div class="route-field">
+            <label>Destination (market)</label>
+            <input type="text" id="destination" list="city-list" placeholder="Type a city — e.g. New York" value="New York, US" autocomplete="off"/>
+          </div>
+          <button class="glass-btn glass-btn-accent" id="optimize-btn">
+            <span class="glass-btn-lens"></span>
+            <span class="glass-btn-text">Optimize →</span>
+          </button>
+        </div>
+      </div>
+      <datalist id="city-list"></datalist>
+    </div>
+  </section>
+
+  <!-- Main grid: controls + globe -->
+  <section class="section" style="padding-top: 16px; padding-bottom: 32px;" data-screen-label="06 Simulator">
+    <div class="container">
+
+      <div class="sim-grid">
+
+        <!-- Left: controls -->
+        <div class="frame">
+
+          <!-- Components -->
+          <div class="frame-panel" style="padding: 22px 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+              <h3 style="margin: 0; font-size: 14px; font-weight: 600;">Components to route</h3>
+              <span class="micro" id="comp-count">0 / 10</span>
+            </div>
+            <p class="body" style="font-size: 12px; margin: 0 0 14px;">Every input that flows through your network.</p>
+            <div class="comp-grid" id="comp-grid"></div>
+          </div>
+
+          <!-- Priorities -->
+          <div class="frame-panel" style="padding: 22px 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px;">
+              <h3 style="margin: 0; font-size: 14px; font-weight: 600;">Priorities</h3>
+              <span class="micro">0 – 100</span>
+            </div>
+            <div class="prio-stack" id="prio-stack"></div>
+          </div>
+
+        </div>
+
+        <!-- Right: globe -->
+        <div class="globe-col">
+          <div class="globe-wrap">
+            <canvas id="globe"></canvas>
+            <div class="globe-labels" id="globe-labels" aria-hidden="true"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendation -->
+  <section class="section" style="padding-top: 0; padding-bottom: 80px;" data-screen-label="06 Simulator — Recommendation">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+        <h3 style="margin: 0; font-size: 16px; font-weight: 600;">Top 4 supply chain routes</h3>
+        <span class="micro" id="route-summary">Awaiting optimization</span>
+      </div>
+      <div class="rec-table-wrap" id="rec-table-wrap">
+        <div class="rec-empty">Choose components, set priorities, then press <strong>Optimize</strong>.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2026 Supply Vector</div>
+    <div>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<style>
+  /* ---------- Route bar ---------- */
+  .route-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto;
+    gap: 18px;
+    align-items: end;
+    padding: 20px 24px;
+  }
+  .route-field { display: flex; flex-direction: column; gap: 6px; }
+  .route-field label {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-60);
+  }
+  .route-field input {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    background: var(--surface-03);
+    border: 1px solid var(--surface-08);
+    color: var(--ink);
+    padding: 12px 14px;
+    outline: none;
+    border-radius: 10px;
+  }
+  .route-field input:focus { border-color: var(--ink-40); background: var(--surface-05); }
+  .route-field input::placeholder { color: var(--ink-30); }
+  .route-arrow {
+    font-family: var(--mono);
+    color: var(--ink-40);
+    font-size: 18px;
+    padding-bottom: 14px;
+  }
+
+  /* ---------- Sim grid ---------- */
+  .sim-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 48px;
+    align-items: start;
+  }
+  .sim-grid > .globe-col {
+    order: -1;
+  }
+  .sim-grid > .frame {
+    margin-top: 40px;
+  }
+
+  /* ---------- Components ---------- */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .comp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--surface-08);
+    background: var(--surface-03);
+    cursor: pointer;
+  }
+  .comp:hover { background: var(--surface-05); }
+  .comp input { position: absolute; opacity: 0; pointer-events: none; }
+  .comp .box {
+    width: 14px; height: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--ink-40);
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+  }
+  .comp .box svg { width: 10px; height: 10px; color: #fff; opacity: 0; }
+  .comp input:checked + .box { background: var(--indigo); border-color: var(--indigo); }
+  .comp input:checked + .box svg { opacity: 1; }
+  .comp .label {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-80);
+  }
+  .comp input:checked ~ .label { color: var(--ink); }
+
+  /* ---------- Sliders ---------- */
+  .prio-stack { display: flex; flex-direction: column; gap: 10px; }
+  .prio-item { display: flex; flex-direction: column; gap: 4px; }
+  .prio-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .prio-name { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--ink-80); }
+  .prio-val { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--ink-60); font-variant-numeric: tabular-nums; }
+  .prio-item input[type=range] { height: 3px; }
+  .prio-item input[type=range]::-webkit-slider-thumb { width: 13px; height: 13px; }
+  .prio-item input[type=range]::-moz-range-thumb { width: 13px; height: 13px; }
+
+  /* ---------- Globe ---------- */
+  .globe-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+  .globe-wrap {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 700px;
+  }
+  #globe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    opacity: 0;
+    transition: opacity 1s ease;
+    touch-action: none;
+  }
+  #globe.flash-out {
+    animation: globeFlash 0.6s ease-out;
+  }
+  @keyframes globeFlash {
+    0% { opacity: 1; }
+    20% { opacity: 0; }
+    60% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .globe-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    display: block;
+  }
+  .globe-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, calc(-100% - 10px));
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(8, 8, 12, 0.92);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+    z-index: 10;
+  }
+  .globe-label-start { border-color: rgba(244, 63, 94, 0.35); }
+  .globe-label-end { border-color: rgba(16, 185, 129, 0.35); }
+  .globe-label-provider { border-color: rgba(99, 102, 241, 0.30); }
+  .globe-label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+  }
+  .globe-label-start .globe-label-dot { background: rgb(244, 63, 94); }
+  .globe-label-end .globe-label-dot { background: rgb(16, 185, 129); }
+  .globe-label-provider .globe-label-dot { background: rgb(129, 140, 248); }
+  .globe-label-kind {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-40);
+    font-weight: 600;
+  }
+  .globe-label-text {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+
+  /* ---------- Recommendation table ---------- */
+  .rec-table-wrap {
+    overflow-x: auto;
+  }
+  .rec-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--surface-08);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface-03);
+  }
+  .rec-table thead {
+    background: var(--surface-05);
+    border-bottom: 1px solid var(--surface-08);
+  }
+  .rec-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-60);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .rec-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--surface-08);
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .rec-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .rec-table tbody tr:hover {
+    background: var(--surface-05);
+  }
+  .rec-rank {
+    font-family: var(--mono);
+    font-weight: 600;
+    color: var(--indigo);
+    font-size: 14px;
+  }
+  .rec-path {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-60);
+    word-break: break-word;
+  }
+  .rec-locations {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-80);
+    max-width: 300px;
+  }
+  .rec-fit {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pdf-btn {
+    padding: 6px 12px;
+    background: var(--indigo);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .pdf-btn:hover {
+    background: var(--indigo-light, #818ce8);
+  }
+  .rec-empty {
+    padding: 28px;
+    border-radius: 12px;
+    border: 1px dashed var(--surface-08);
+    color: var(--ink-40);
+    font-family: var(--sans);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  @media (max-width: 960px) {
+    .sim-grid {
+      grid-template-columns: 1fr;
+    }
+    .route-bar { grid-template-columns: 1fr; }
+    .route-arrow { display: none; }
+    .globe-wrap {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<!-- Build UI + run optimization + render globe -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  /* ---------- 0. Datalist ---------- */
+  const dl = document.getElementById('city-list');
+  dl.innerHTML = SV_CITIES.map(c => `<option value="${c[0]}">`).join('');
+
+  /* ---------- Supply data (JSON) ---------- */
+  let SUPPLY_META = null; // filled after fetch
+
+  const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+  const compGrid  = document.getElementById('comp-grid');
+  const compCount = document.getElementById('comp-count');
+
+  function updateCount() {
+    const all = compGrid.querySelectorAll('input');
+    const n   = compGrid.querySelectorAll('input:checked').length;
+    compCount.textContent = `${n} / ${all.length}`;
+  }
+
+  /* Rebuild the component checkboxes for the active category */
+  function rebuildCompGrid(types) {
+    compGrid.innerHTML = types.map((name, i) => `
+      <label class="comp">
+        <input type="checkbox" data-comp="${i}" checked/>
+        <span class="box">${checkSvg}</span>
+        <span class="label">${name}</span>
+      </label>
+    `).join('');
+    compGrid.addEventListener('change', updateCount);
+    updateCount();
+  }
+
+  /* Switch category: update SV_PROVIDERS, badge, grid, then re-optimize */
+  function applyCategory(cat) {
+    if (!SUPPLY_META) return;
+    const types = SUPPLY_META.categories[cat] || [];
+    // Rebuild SV_PROVIDERS from loaded JSON
+    window.SV_PROVIDERS = {};
+    for (const t of types) {
+      if (window._SV_JSON[t]) window.SV_PROVIDERS[t] = window._SV_JSON[t];
+    }
+    document.getElementById('badge-label').textContent = `Supply Chain · ${cat}`;
+    rebuildCompGrid(types);
+    runOptimize();
+  }
+
+  /* Load supply_data.json, then boot */
+  fetch('supply_data.json')
+    .then(r => r.json())
+    .then(data => {
+      window._SV_JSON = data;
+      SUPPLY_META = data._meta;
+      // Wire up the product-type dropdown
+      const sel = document.getElementById('product-type-select');
+      sel.addEventListener('change', () => applyCategory(sel.value));
+      // Boot with default category
+      applyCategory(sel.value);
+    })
+    .catch(() => {
+      // Fallback: use whatever is already in SV_PROVIDERS (clothing line)
+      const COMPONENTS = Object.keys(SV_PROVIDERS);
+      rebuildCompGrid(COMPONENTS);
+      runOptimize();
+    });
+
+  /* ---------- 1. Components ---------- */
+  // (grid built dynamically via rebuildCompGrid above)
+
+  function selectedComponents() {
+    const types = Object.keys(window.SV_PROVIDERS || {});
+    return [...compGrid.querySelectorAll('input:checked')].map(i => types[+i.dataset.comp]);
+  }
+
+  /* ---------- 2. Sliders ---------- */
+  const PRIORITIES = [
+    { id: 'cost',       name: 'Cost',                     value: 60 },
+    { id: 'speed',      name: 'Speed',                    value: 50 },
+    { id: 'resilience', name: 'Resilience',               value: 65 },
+    { id: 'sustain',    name: 'Sustainability',           value: 40 },
+    { id: 'ethics',     name: 'Ethics',                   value: 55 },
+    { id: 'tariffs',    name: 'Tariffs',                  value: 35 },
+    { id: 'emissions',  name: 'Emissions',                value: 45 },
+    { id: 'supplier',   name: 'Supplier risk',            value: 70 },
+    { id: 'geo',        name: 'Geopolitical instability', value: 75 },
+  ];
+  const stack = document.getElementById('prio-stack');
+  stack.innerHTML = PRIORITIES.map(p => `
+    <div class="prio-item">
+      <div class="prio-row">
+        <span class="prio-name">${p.name}</span>
+        <span class="prio-val" data-out="${p.id}">${p.value}</span>
+      </div>
+      <input type="range" min="0" max="100" value="${p.value}" data-prio="${p.id}"/>
+    </div>
+  `).join('');
+  stack.addEventListener('input', (e) => {
+    const t = e.target;
+    if (t.tagName !== 'INPUT') return;
+    const out = document.querySelector(`[data-out="${t.dataset.prio}"]`);
+    if (out) out.textContent = t.value;
+  });
+
+  function currentPriorities() {
+    const out = {};
+    stack.querySelectorAll('input[data-prio]').forEach(i => out[i.dataset.prio] = +i.value);
+    return out;
+  }
+
+  /* ---------- 3. Optimization → render ---------- */
+  const originIn = document.getElementById('origin');
+  const destIn = document.getElementById('destination');
+  const recTableWrap = document.getElementById('rec-table-wrap');
+  const routeSummary = document.getElementById('route-summary');
+
+  function runOptimize() {
+    const origin = SV_findCity(originIn.value);
+    const dest = SV_findCity(destIn.value);
+    if (!origin || !dest) {
+      routeSummary.textContent = 'Origin or destination not recognized';
+      return;
+    }
+    const comps = selectedComponents();
+    if (comps.length === 0) {
+      routeSummary.textContent = 'Select at least one component';
+      recTableWrap.innerHTML = `<div class="rec-empty">Select at least one component.</div>`;
+      setRoute(origin, dest, []);
+      return;
+    }
+    const prios = currentPriorities();
+
+    // Use the advanced optimization algorithm
+    const optimizedRoutes = SV_optimizeRoutes(comps, SV_PROVIDERS, prios, origin, dest);
+
+    // Transform to display format
+    const routes = optimizedRoutes.map((route, i) => {
+      const providerList = Object.values(route.providers);
+      const locations = [origin.name];
+      const locData = [{ name: origin.name, lat: origin.loc[0], lng: origin.loc[1] }];
+
+      for (const p of providerList) {
+        locations.push(p.city);
+        locData.push({ name: p.city, lat: p.loc[0], lng: p.loc[1] });
+      }
+
+      locations.push(dest.name);
+      locData.push({ name: dest.name, lat: dest.loc[0], lng: dest.loc[1] });
+
+      return {
+        rank: i + 1,
+        path: locations.join(' → '),
+        locations: locData,
+        fit: route.score,
+        providers: providerList.map(p => `${p.name} (${p.city})`),
+        components: Object.keys(route.providers),
+      };
+    });
+
+    // Render table
+    recTableWrap.innerHTML = `
+      <table class="rec-table">
+        <thead>
+          <tr>
+            <th style="width: 60px;">Route</th>
+            <th>Path</th>
+            <th style="width: 80px;">Fit</th>
+            <th style="width: 120px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${routes.map(route => `
+            <tr>
+              <td><span class="rec-rank">#${route.rank}</span></td>
+              <td><code class="rec-path">${route.path}</code></td>
+              <td><span class="rec-fit">${route.fit}/100</span></td>
+              <td>
+                <button class="pdf-btn" data-route="${route.rank}" onclick="downloadRoutePdf(event, ${JSON.stringify(route).replace(/"/g, '&quot;')})">
+                  ↓ PDF
+                </button>
+              </td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    `;
+
+    routeSummary.textContent = `${origin.name} → ${comps.length} suppliers → ${dest.name}`;
+
+    // Store routes for PDF access
+    window._lastRoutes = optimizedRoutes;
+
+    // Display first route on globe
+    if (routes.length > 0) {
+      const picks = Object.values(optimizedRoutes[0].providers);
+      setRoute(origin, dest, picks);
+    }
+  }
+
+  // Store last optimized routes so the PDF can pull detailed scores
+  window._lastRoutes = [];
+
+  window.downloadRoutePdf = function(event, route) {
+    event.preventDefault();
+
+    const originVal = originIn.value || 'Origin';
+    const destVal   = destIn.value   || 'Destination';
+    const prios     = currentPriorities();
+    const topPrios  = Object.entries(prios)
+                        .sort((a,b)=>b[1]-a[1]).slice(0,3)
+                        .map(([k,v])=> k.charAt(0).toUpperCase()+k.slice(1)+' ('+v+')').join(', ');
+
+    // Provider detail rows
+    const providerRows = (route.components || []).map((comp,i)=>{
+      const pName = route.providers[i] || '—';
+      return '<tr><td style="padding:8px 12px;border-bottom:1px solid #2a2a3a;font-size:12px;color:#aaa;">'+comp+'</td>'
+           + '<td style="padding:8px 12px;border-bottom:1px solid #2a2a3a;font-size:12px;color:#e2e2f0;">'+pName+'</td></tr>';
+    }).join('');
+
+    // Score bar helper
+    function bar(val){
+      const pct = isNaN(val)?0:Math.round(val);
+      const col = pct>=75?'#10b981':pct>=50?'#6366f1':'#f43f5e';
+      return '<div style="display:flex;align-items:center;gap:8px;">'
+           + '<div style="flex:1;height:6px;background:#1e1e2e;border-radius:3px;">'
+           + '<div style="width:'+pct+'%;height:6px;background:'+col+';border-radius:3px;"></div></div>'
+           + '<span style="font-size:11px;color:#aaa;width:28px;text-align:right;">'+pct+'</span></div>';
+    }
+
+    const fitColor = route.fit>=75?'#10b981':route.fit>=55?'#6366f1':'#f43f5e';
+    const today    = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+    // Pull raw provider objects from stored route data
+    const routeObj  = (window._lastRoutes||[])[route.rank-1];
+    const provList  = routeObj ? Object.values(routeObj.providers) : [];
+    const avg = key => provList.length
+      ? Math.round(provList.reduce((s,p)=>s+(p.scores?.[key]||0),0)/provList.length) : 0;
+
+    const scoreMetrics = [
+      {label:'Cost efficiency', key:'cost'},
+      {label:'Delivery speed',  key:'speed'},
+      {label:'Resilience',      key:'resilience'},
+      {label:'Sustainability',  key:'sustain'},
+      {label:'Ethics & labour', key:'ethics'},
+      {label:'Tariff exposure', key:'tariffs'},
+      {label:'Emissions',       key:'emissions'},
+      {label:'Supplier risk',   key:'supplier'},
+      {label:'Geopolitical',    key:'geo'},
+    ];
+    const scoreRows = scoreMetrics.map(m=>'<tr>'
+      +'<td style="padding:6px 12px;font-size:12px;color:#aaa;white-space:nowrap;">'+m.label+'</td>'
+      +'<td style="padding:6px 12px;width:200px;">'+bar(avg(m.key))+'</td>'
+      +'</tr>').join('');
+
+    // Risk flags
+    const flags = [];
+    if(provList.some(p=>(p.scores?.geo||100)<50))    flags.push('⚠️ One or more suppliers in high geopolitical-risk regions.');
+    if(provList.some(p=>(p.scores?.tariffs||100)<40)) flags.push('⚠️ Significant tariff exposure — consider nearshoring alternatives.');
+    if(provList.some(p=>(p.scores?.ethics||100)<55))  flags.push('⚠️ Ethics / labour score below threshold for some suppliers.');
+    if(provList.some(p=>(p.scores?.emissions||100)<50))flags.push('⚠️ High emissions score on at least one leg — review green logistics.');
+    if(!flags.length) flags.push('✅ No critical risk flags detected for this route.');
+
+    const html = '<!DOCTYPE html><html><head><meta charset="utf-8"/>'
+      +'<title>Supply Vector — Route #'+route.rank+' Summary</title>'
+      +'<style>*{margin:0;padding:0;box-sizing:border-box}'
+      +'body{background:#0c0c14;color:#e2e2f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:40px}'
+      +'h1{font-size:24px;font-weight:700;color:#fff;letter-spacing:-.5px}'
+      +'h2{font-size:13px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}'
+      +'.badge{display:inline-block;background:#6366f1;color:#fff;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:8px}'
+      +'.card{background:#13131f;border:1px solid #1e1e2e;border-radius:12px;padding:20px 24px;margin-bottom:20px}'
+      +'table{width:100%;border-collapse:collapse}'
+      +'.chip{display:inline-block;background:#1e1e2e;border:1px solid #2a2a3a;border-radius:6px;padding:3px 10px;font-size:11px;color:#aaa;margin:2px}'
+      +'.score-big{font-size:48px;font-weight:800;color:'+fitColor+';line-height:1}'
+      +'.meta{font-size:12px;color:#666;margin-top:4px}'
+      +'.path{font-family:monospace;font-size:12px;color:#818cf8;word-break:break-all;line-height:1.8}'
+      +'.flag{font-size:12px;color:#e2e2f0;margin-bottom:6px}'
+      +'.footer-txt{font-size:11px;color:#444;margin-top:32px;text-align:center}'
+      +'@media print{body{background:#fff!important;color:#000!important}}'
+      +'</style></head><body>'
+
+      // Header
+      +'<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;">'
+      +'<div><div class="badge">Supply Vector</div>'
+      +'<h1>Route #'+route.rank+' — Supply Chain Summary</h1>'
+      +'<p class="meta">Generated '+today+' &nbsp;·&nbsp; '+originVal+' → '+destVal+'</p></div>'
+      +'<div style="text-align:right;"><div class="score-big">'+route.fit+'</div>'
+      +'<div style="font-size:12px;color:#aaa;margin-top:2px;">Overall fit / 100</div></div></div>'
+
+      // Route path
+      +'<div class="card"><h2>Full route path</h2>'
+      +'<p class="path">'+route.path+'</p></div>'
+
+      // Score breakdown
+      +'<div class="card"><h2>Score breakdown (route average)</h2>'
+      +'<table>'+scoreRows+'</table></div>'
+
+      // Suppliers
+      +'<div class="card"><h2>Selected suppliers by component</h2>'
+      +'<table><thead><tr>'
+      +'<th style="padding:8px 12px;text-align:left;font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.06em;">Component</th>'
+      +'<th style="padding:8px 12px;text-align:left;font-size:11px;color:#666;text-transform:uppercase;letter-spacing:.06em;">Supplier (location)</th>'
+      +'</tr></thead><tbody>'+providerRows+'</tbody></table></div>'
+
+      // Priorities
+      +'<div class="card"><h2>Optimization priorities used</h2>'
+      +'<p style="font-size:12px;color:#aaa;margin-bottom:10px;">Top weighted: <strong style="color:#e2e2f0;">'+topPrios+'</strong></p>'
+      +'<div>'+Object.entries(prios).map(([k,v])=>'<span class="chip">'+k+': '+v+'</span>').join('')+'</div></div>'
+
+      // Risk flags
+      +'<div class="card"><h2>Risk flags</h2>'
+      +flags.map(f=>'<p class="flag">'+f+'</p>').join('')+'</div>'
+
+      // Recommendation
+      +'<div class="card" style="border-color:#6366f133;"><h2>Recommendation</h2>'
+      +'<p style="font-size:13px;color:#e2e2f0;line-height:1.7;">'
+      +'This route scores <strong>'+route.fit+'/100</strong> against your configured priorities. '
+      +(route.fit>=75
+        ?'It represents a strong supply chain with well-balanced trade-offs across cost, speed, and resilience.'
+        :route.fit>=55
+          ?'It is a viable option but consider adjusting suppliers or priorities to improve the overall fit score.'
+          :'This route has notable weaknesses. Review the score breakdown and risk flags before proceeding.')
+      +' The route spans <strong>'+route.locations.length+'</strong> nodes from '
+      +'<strong>'+originVal+'</strong> to <strong>'+destVal+'</strong>.'
+      +'</p></div>'
+
+      +'<p class="footer-txt">Supply Vector · Confidential · '+today+'</p>'
+      +'<script>window.onload=function(){window.print();}<\/script>'
+      +'</body></html>';
+
+    const win = window.open('','_blank');
+    if(win){ win.document.write(html); win.document.close(); }
+  };
+
+  document.getElementById('optimize-btn').addEventListener('click', () => {
+    // Trigger flash animation
+    const globe = document.getElementById('globe');
+    globe.classList.remove('flash-out');
+    void globe.offsetWidth; // Force reflow
+    globe.classList.add('flash-out');
+    setTimeout(() => globe.classList.remove('flash-out'), 600);
+
+    runOptimize();
+  });
+
+  /* ---------- 4. Globe ---------- */
+  const canvas = document.getElementById('globe');
+  const globeCol = document.querySelector('.globe-col');
+  const globeWrap = document.querySelector('.globe-wrap');
+  const controlsPane = document.querySelector('.sim-grid > .frame');
+  const globeLabels = document.getElementById('globe-labels');
+  const globeScale = 1.12;
+  const globeOffset = { x: 0, y: 0 };
+  let phi = 0;
+  const theta = 0.25;
+  let phiOffset = 0, thetaOffset = 0;
+  let drag = { phi: 0, theta: 0 };
+  let pointer = null;
+  let paused = false;
+
+  // Current route state
+  let routeOrigin = null;
+  let routeDest = null;
+  let routeProviders = []; // [{loc, ...}]
+  let globeMarkers = [];
+  let labelMarkers = [];
+
+  function fitGlobe() {
+    const wrapRect = globeWrap.getBoundingClientRect();
+    const nextSize = Math.floor(wrapRect.width);
+    if (!nextSize) return 0;
+    return nextSize;
+  }
+
+  function setRoute(origin, dest, picks) {
+    routeOrigin = origin;
+    routeDest = dest;
+    routeProviders = picks.map(p => ({ loc: p.loc, name: p.name, city: p.city }));
+    precomputeRoute();
+  }
+
+  function precomputeRoute() {
+    globeMarkers = [];
+    labelMarkers = [];
+    if (!routeOrigin || !routeDest) {
+      renderGlobeLabels();
+      return;
+    }
+
+    const providerOffsets = [
+      { x: 0, y: 45 },
+      { x: 0, y: 45 },
+      { x: 0, y: 45 },
+      { x: 0, y: 45 },
+      { x: 0, y: 45 },
+      { x: 0, y: 45 },
+    ];
+    const seenProviders = new Set();
+    for (const p of routeProviders) {
+      const key = `${p.city}|${p.loc[0]}|${p.loc[1]}`;
+      if (seenProviders.has(key)) continue;
+      seenProviders.add(key);
+      const id = `provider-${labelMarkers.length}`;
+      const offset = providerOffsets[labelMarkers.length % providerOffsets.length];
+      globeMarkers.push({ location: p.loc, size: 0.05, color: [0.50, 0.55, 0.98], id });
+      labelMarkers.push({ id, kind: 'provider', kindLabel: 'Supply', text: p.city, loc: p.loc, offsetX: offset.x, offsetY: offset.y });
+    }
+    globeMarkers.push({ location: routeOrigin.loc, size: 0.078, color: [0.96, 0.25, 0.37], id: 'route-start' });
+    globeMarkers.push({ location: routeDest.loc, size: 0.078, color: [0.06, 0.73, 0.53], id: 'route-end' });
+    labelMarkers.push({ id: 'route-start', kind: 'start', kindLabel: 'Start', text: routeOrigin.name, loc: routeOrigin.loc, offsetX: 0, offsetY: 50 });
+    labelMarkers.push({ id: 'route-end', kind: 'end', kindLabel: 'End', text: routeDest.name, loc: routeDest.loc, offsetX: 0, offsetY: 50 });
+    renderGlobeLabels();
+  }
+
+  function renderGlobeLabels() {
+    globeLabels.innerHTML = labelMarkers.map(label => `
+      <svg class="globe-connector" data-connector-id="${label.id}" style="position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;">
+        <line x1="0" y1="0" x2="0" y2="0" stroke="rgba(255,255,255,0.15)" stroke-width="1" vector-effect="non-scaling-stroke"/>
+      </svg>
+      <div
+        class="globe-label globe-label-${label.kind}"
+        data-label-id="${label.id}"
+      >
+        <span class="globe-label-dot"></span>
+        <span class="globe-label-kind">${label.kindLabel}</span>
+        <span class="globe-label-text">${label.text}</span>
+      </div>
+    `).join('');
+  }
+
+  function latLngToUnit(loc) {
+    const φ = loc[0] * Math.PI / 180;
+    const λ = loc[1] * Math.PI / 180;
+    const cosφ = Math.cos(φ);
+    return {
+      x: cosφ * Math.cos(λ),
+      y: Math.sin(φ),
+      z: -cosφ * Math.sin(λ),
+    };
+  }
+
+  function rotate(pt, phi, theta) {
+    const cp = Math.cos(phi), sp = Math.sin(phi);
+    const ct = Math.cos(theta), st = Math.sin(theta);
+    return {
+      x: pt.x * cp + pt.z * sp,
+      y: pt.y * ct + st * (pt.x * sp - pt.z * cp),
+      z: pt.y * st + ct * (pt.z * cp - pt.x * sp),
+    };
+  }
+
+  function updateGlobeLabels(size, curPhi, curTheta) {
+    const radius = size * 0.5 * globeScale;
+    const centerX = size / 2 + globeOffset.x;
+    const centerY = size / 2 + globeOffset.y;
+
+    for (const label of labelMarkers) {
+      const el = globeLabels.querySelector(`[data-label-id="${label.id}"]`);
+      const connector = globeLabels.querySelector(`[data-connector-id="${label.id}"] line`);
+      if (!el) continue;
+
+      const r = rotate(latLngToUnit(label.loc), curPhi, curTheta);
+      const visible = r.z > -0.03;
+
+      // Marker position on globe surface
+      const markerX = centerX + r.x * radius;
+      const markerY = centerY - r.y * radius;
+
+      // Label position
+      const labelX = markerX + (label.offsetX || 0);
+      const labelY = markerY + (label.offsetY || 0);
+
+      el.style.left = `${labelX.toFixed(1)}px`;
+      el.style.top = `${labelY.toFixed(1)}px`;
+      el.style.opacity = visible ? '1' : '0';
+      el.style.filter = visible ? 'blur(0)' : 'blur(8px)';
+
+      // Draw connecting line from marker to label
+      if (connector) {
+        connector.setAttribute('x1', markerX.toFixed(1));
+        connector.setAttribute('y1', markerY.toFixed(1));
+        connector.setAttribute('x2', labelX.toFixed(1));
+        connector.setAttribute('y2', labelY.toFixed(1));
+        connector.style.opacity = visible ? '1' : '0';
+      }
+    }
+  }
+
+  function startGlobe() {
+    const width = fitGlobe();
+    if (width === 0) return false;
+
+    import('https://esm.sh/cobe@0.6.4').then(({ default: createGlobe }) => {
+      createGlobe(canvas, {
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        width: width,
+        height: width,
+        phi: 0,
+        theta: theta,
+        dark: 1,
+        diffuse: 1.2,
+        offset: [globeOffset.x, globeOffset.y],
+        scale: globeScale,
+        mapSamples: 16000,
+        mapBrightness: 5,
+        baseColor:   [0.55, 0.55, 0.65],
+        markerColor: [0.39, 0.40, 0.95],
+        glowColor:   [0.35, 0.35, 0.50],
+        markers: [],
+        onRender: (state) => {
+          const nextWidth = fitGlobe() || width;
+          if (!paused) phi += 0.0025;
+          const fp = phi + phiOffset + drag.phi;
+          const ft = theta + thetaOffset + drag.theta;
+          state.phi = fp;
+          state.theta = ft;
+          state.width = nextWidth;
+          state.height = nextWidth;
+          state.markers = globeMarkers;
+          updateGlobeLabels(nextWidth, fp, ft);
+        },
+      });
+      setTimeout(() => { canvas.style.opacity = '1'; }, 50);
+    });
+
+    canvas.addEventListener('pointerdown', (e) => {
+      pointer = { x: e.clientX, y: e.clientY };
+      paused = true;
+      canvas.style.cursor = 'grabbing';
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!pointer) return;
+      drag.phi   = (e.clientX - pointer.x) / 220;
+      drag.theta = (e.clientY - pointer.y) / 500;
+    }, { passive: true });
+    window.addEventListener('pointerup', () => {
+      if (pointer) {
+        phiOffset += drag.phi;
+        thetaOffset += drag.theta;
+        drag = { phi: 0, theta: 0 };
+      }
+      pointer = null;
+      paused = false;
+      canvas.style.cursor = 'grab';
+    }, { passive: true });
+
+    return true;
+  }
+
+  if (!startGlobe()) {
+    const ro = new ResizeObserver(es => {
+      if (es[0]?.contentRect.width > 0) { ro.disconnect(); startGlobe(); }
+    });
+    ro.observe(globeCol);
+  }
+
+  /* ---------- 5. Boot: handled by fetch().then → applyCategory ---------- */
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Access — Supply Vector</title>
+<link rel="stylesheet" href="oracle.css" />
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="shell">
+
+  <header class="header">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      Supply Vector
+    </a>
+    <nav class="nav">
+      <a href="about.html">About</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-cta" data-header-cta>
+      <a class="btn btn-ghost" href="index.html">← Back to site</a>
+    </div>
+  </header>
+
+  <section style="position: relative; z-index: 4;" data-screen-label="03 Access — Split">
+
+    <!-- ambient floating shapes on left side -->
+    <div class="shapes auth-shapes" aria-hidden="true">
+      <div class="shape" style="--w: 360px; --h: 90px; --delay: 0.3s; --rotate: 14deg; top: 18%; left: -8%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(99,102,241,0.14);"></div></div>
+      </div>
+      <div class="shape" style="--w: 280px; --h: 72px; --delay: 0.5s; --rotate: -10deg; bottom: 12%; left: -3%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(139,92,246,0.14);"></div></div>
+      </div>
+    </div>
+
+    <div class="auth-grid">
+
+      <!-- Left: rotating signal -->
+      <div class="auth-left">
+        <div style="display: flex; flex-direction: column; height: 100%; padding: 80px 56px; border-right: 1px solid var(--line); position: relative; z-index: 5;">
+
+          <span class="badge" style="align-self: flex-start;">
+            <span class="badge-dot"></span>
+            <span>Signal</span>
+          </span>
+
+          <div style="flex: 1; display: flex; align-items: center; padding: 60px 0;">
+            <div id="rotator" style="max-width: 32ch;">
+
+              <div class="rot-slide" data-active="true">
+                <div class="stat-big">
+                  <span class="grad-text">$1.6T</span>
+                </div>
+                <p class="lede" style="margin-top: 24px; color: var(--ink-60);">Annual losses attributed to supply chain disruption across global enterprise, 2024.</p>
+                <div class="body" style="font-size: 13px; margin-top: 16px;">Source · World Trade Statistical Review</div>
+              </div>
+
+              <div class="rot-slide">
+                <div class="stat-big">
+                  <span class="grad-text">3.4×</span>
+                </div>
+                <p class="lede" style="margin-top: 24px; color: var(--ink-60);">Increase in geopolitical chokepoint incidents affecting global shipping lanes since 2019.</p>
+                <div class="body" style="font-size: 13px; margin-top: 16px;">Source · UNCTAD Maritime Report</div>
+              </div>
+
+              <div class="rot-slide">
+                <p class="lede" style="font-size: 24px; font-weight: 500; color: var(--ink);">
+                  “Supply Vector rerouted forty-two SKUs the morning Bab el-Mandeb closed. Our shelves never moved.”
+                </p>
+                <div class="body" style="font-size: 13px; margin-top: 20px;">VP Operations · Mid-cap Apparel</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button class="rot-dot" data-i="0" aria-label="Slide 1"></button>
+            <button class="rot-dot" data-i="1" aria-label="Slide 2"></button>
+            <button class="rot-dot" data-i="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="auth-right">
+        <div style="display: flex; flex-direction: column; padding: 80px 56px; max-width: 540px;">
+
+          <div class="seg">
+            <button class="seg-btn active" data-mode="signup">Create Account</button>
+            <button class="seg-btn" data-mode="signin">Sign In</button>
+          </div>
+
+          <h2 class="h3" style="font-size: 32px; margin-top: 36px;" id="formTitle">Initialize your access.</h2>
+          <p class="body" style="margin-top: 10px;" id="formSub">Free vulnerability scan. No procurement integration required.</p>
+
+          <!-- One-click -->
+          <div style="margin-top: 36px; display: flex; flex-direction: column; gap: 10px;">
+            <button class="oauth">
+              <span class="oauth-mark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+              </span>
+              <span>Continue with Google</span>
+            </button>
+            <button class="oauth">
+              <span class="oauth-mark">
+                <svg width="14" height="14" viewBox="0 0 24 24">
+                  <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+                  <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
+                  <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
+                  <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+                </svg>
+              </span>
+              <span>Continue with Microsoft Azure</span>
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 14px; margin: 28px 0;">
+            <div style="flex: 1; height: 1px; background: var(--line);"></div>
+            <span class="body" style="font-size: 12px; color: var(--ink-40);">or with email</span>
+            <div style="flex: 1; height: 1px; background: var(--line);"></div>
+          </div>
+
+          <form id="authForm" style="display: flex; flex-direction: column; gap: 18px;">
+            <div class="field" id="nameField">
+              <label>Full name</label>
+              <input type="text" id="name" placeholder="Jane Anand" autocomplete="name"/>
+            </div>
+            <div class="field">
+              <label>Corporate email</label>
+              <input type="email" id="email" placeholder="you@company.com" autocomplete="email" required/>
+              <div class="hint" id="emailHint"></div>
+            </div>
+            <div class="field">
+              <label>Password</label>
+              <input type="password" id="password" placeholder="Minimum 10 characters" autocomplete="new-password" required/>
+              <div class="strength">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+              <div class="hint" id="pwHint">10+ chars · letters · numbers · symbols</div>
+            </div>
+
+            <button type="submit" class="glass-btn glass-btn-accent" style="margin-top: 8px; width: 100%;" id="submit">
+              <span class="glass-btn-lens"></span>
+              <span class="glass-btn-text" id="submitText">Create Account →</span>
+            </button>
+            <div id="formError" class="hint bad" style="display: none;"></div>
+          </form>
+
+          <p class="body" style="font-size: 12px; margin-top: 24px; color: var(--ink-40);">
+            By creating an account, you agree to our <a href="#" style="color: var(--ink-80); text-decoration: underline;">Terms of Service</a> and <a href="#" style="color: var(--ink-80); text-decoration: underline;">Privacy Policy</a>.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2026 Supply Vector</div>
+    <div>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </footer>
+
+</div>
+
+<style>
+  .auth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 160px);
+  }
+  .auth-shapes { position: absolute; inset: 0; pointer-events: none; }
+
+  .stat-big {
+    font-family: var(--sans);
+    font-weight: 800;
+    font-size: clamp(72px, 9vw, 132px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .rot-slide { display: none; }
+  .rot-slide[data-active="true"] { display: block; }
+
+  .rot-dot {
+    width: 28px; height: 3px;
+    background: var(--surface-08);
+    border: none; padding: 0; cursor: pointer;
+    border-radius: 9999px;
+  }
+  .rot-dot.active { background: var(--ink); }
+
+  /* segmented toggle */
+  .seg {
+    display: inline-flex;
+    border-radius: 9999px;
+    background: var(--surface-03);
+    border: 1px solid var(--surface-08);
+    padding: 4px;
+    align-self: flex-start;
+  }
+  .seg-btn {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 18px;
+    background: transparent;
+    color: var(--ink-60);
+    border: none;
+    cursor: pointer;
+    border-radius: 9999px;
+  }
+  .seg-btn.active {
+    background: var(--ink);
+    color: #030303;
+    font-weight: 600;
+  }
+
+  /* oauth */
+  .oauth {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 18px;
+    background: var(--surface-03);
+    border: 1px solid var(--surface-08);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 9999px;
+  }
+  .oauth-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+  }
+
+  /* strength bars */
+  .strength { display: flex; gap: 4px; margin-top: 2px; }
+  .strength .bar {
+    flex: 1; height: 3px;
+    background: var(--surface-08);
+    border-radius: 9999px;
+  }
+  .strength .bar.on { background: var(--emerald); }
+
+  @media (max-width: 880px) {
+    .auth-grid { grid-template-columns: 1fr; }
+    .auth-left > div, .auth-right > div { padding: 48px 24px !important; }
+    .auth-left > div { border-right: none !important; border-bottom: 1px solid var(--line); }
+  }
+</style>
+
+<script>
+  const segs = document.querySelectorAll('.seg-btn');
+  const submitText = document.getElementById('submitText');
+  const formTitle = document.getElementById('formTitle');
+  const formSub = document.getElementById('formSub');
+  const nameField = document.getElementById('nameField');
+  let mode = 'signup';
+  segs.forEach(b => b.addEventListener('click', () => {
+    segs.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    mode = b.dataset.mode;
+    if (mode === 'signin') {
+      submitText.textContent = 'Sign In →';
+      formTitle.textContent = 'Welcome back.';
+      formSub.textContent = 'Resume your simulations and live monitors.';
+      nameField.style.display = 'none';
+    } else {
+      submitText.textContent = 'Create Account →';
+      formTitle.textContent = 'Initialize your access.';
+      formSub.textContent = 'Free vulnerability scan. No procurement integration required.';
+      nameField.style.display = '';
+    }
+  }));
+
+  const slides = document.querySelectorAll('.rot-slide');
+  const dots = document.querySelectorAll('.rot-dot');
+  let idx = 0;
+  function go(i) {
+    idx = i;
+    slides.forEach((s, n) => s.setAttribute('data-active', n === i ? 'true' : 'false'));
+    dots.forEach((d, n) => d.classList.toggle('active', n === i));
+  }
+  dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.i)));
+  go(0);
+  setInterval(() => go((idx + 1) % slides.length), 6000);
+
+  const email = document.getElementById('email');
+  const emailHint = document.getElementById('emailHint');
+  const consumer = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com'];
+  email.addEventListener('input', () => {
+    const v = email.value.trim();
+    if (!v) { emailHint.textContent = ''; emailHint.className = 'hint'; return; }
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if (!ok) { emailHint.textContent = '✗ Invalid format'; emailHint.className = 'hint bad'; return; }
+    const domain = v.split('@')[1].toLowerCase();
+    if (consumer.includes(domain)) {
+      emailHint.textContent = 'Corporate email recommended';
+      emailHint.className = 'hint';
+    } else {
+      emailHint.textContent = '✓ Corporate domain verified';
+      emailHint.className = 'hint ok';
+    }
+  });
+
+  const pw = document.getElementById('password');
+  const pwHint = document.getElementById('pwHint');
+  const bars = document.querySelectorAll('.strength .bar');
+  pw.addEventListener('input', () => {
+    const v = pw.value;
+    let s = 0;
+    if (v.length >= 10) s++;
+    if (/[A-Z]/.test(v) && /[a-z]/.test(v)) s++;
+    if (/\d/.test(v)) s++;
+    if (/[^A-Za-z0-9]/.test(v)) s++;
+    bars.forEach((b, i) => b.classList.toggle('on', i < s));
+    if (!v) { pwHint.textContent = '10+ chars · letters · numbers · symbols'; pwHint.className = 'hint'; }
+    else if (s < 3) { pwHint.textContent = 'Strength: weak'; pwHint.className = 'hint bad'; }
+    else if (s === 3) { pwHint.textContent = '✓ Strength: good'; pwHint.className = 'hint ok'; }
+    else { pwHint.textContent = '✓ Strength: strong'; pwHint.className = 'hint ok'; }
+  });
+
+  // ---------- Submit: actually create / sign in ----------
+  const form = document.getElementById('authForm');
+  const formError = document.getElementById('formError');
+  const nameInput = document.getElementById('name');
+
+  function showError(msg) {
+    formError.textContent = msg;
+    formError.style.display = 'block';
+  }
+  function clearError() {
+    formError.textContent = '';
+    formError.style.display = 'none';
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearError();
+    const emailVal = email.value.trim();
+    const pwVal = pw.value;
+    const nameVal = (nameInput.value || '').trim();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      showError('Please enter a valid email address.');
+      return;
+    }
+    if (mode === 'signup' && pwVal.length < 10) {
+      showError('Password must be at least 10 characters.');
+      return;
+    }
+    if (mode === 'signin' && pwVal.length < 1) {
+      showError('Enter your password.');
+      return;
+    }
+
+    const SV = window.SupplyVector;
+    const finalName = nameVal || (SV && SV.Auth.deriveName(emailVal)) || emailVal.split('@')[0];
+    if (SV) {
+      SV.Auth.set({ name: finalName, email: emailVal, createdAt: Date.now() });
+    } else {
+      localStorage.setItem('supplyvector.user', JSON.stringify({ name: finalName, email: emailVal }));
+    }
+
+    // Redirect to dashboard — the placeholder for now.
+    window.location.href = 'dashboard.html';
+  });
+</script>
+</body>
+</html>

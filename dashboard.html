@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Welcome — Supply Vector</title>
+<link rel="stylesheet" href="oracle.css" />
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="shell">
+
+  <header class="header" data-screen-label="04 Welcome — Header">
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      Supply Vector
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="header-cta" data-header-cta></div>
+  </header>
+
+  <section data-screen-label="04 Welcome" style="position: relative; min-height: calc(100vh - 160px); display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 80px 24px;">
+
+    <div class="shapes" aria-hidden="true">
+      <div class="shape" style="--w: 520px; --h: 130px; --delay: 0.3s; --rotate: 10deg; top: 22%; left: -6%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(99,102,241,0.18);"></div></div>
+      </div>
+      <div class="shape" style="--w: 380px; --h: 96px; --delay: 0.5s; --rotate: -14deg; bottom: 16%; right: -3%;">
+        <div class="shape-float"><div class="shape-pill" style="--grad: rgba(244,63,94,0.18);"></div></div>
+      </div>
+    </div>
+
+    <div class="edge-fade"></div>
+
+    <div style="position: relative; z-index: 5; max-width: 760px; margin: 0 auto; text-align: center;">
+
+      <h1 class="h1 fade-up" style="--d: 0s; font-size: clamp(48px, 7vw, 96px);">
+        <span class="solid-text" id="welcome">Welcome,</span>
+        <span class="grad-text">let's get started.</span>
+      </h1>
+
+      <div class="fade-up" style="--d: 0.4s; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 48px;">
+        <a class="glass-btn glass-btn-lg glass-btn-accent" href="simulator.html">
+          <span class="glass-btn-lens"></span>
+          <span class="glass-btn-text">Start Optimizing →</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>© 2026 Supply Vector</div>
+    <div>
+      <a href="about.html">About</a>
+      <a href="about.html#contact">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<style>
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-up 1s cubic-bezier(0.25, 0.4, 0.25, 1) var(--d, 0s) forwards;
+  }
+  @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const SV = window.SupplyVector;
+    if (!SV) return;
+    const user = SV.Auth.get();
+    if (user && user.name) {
+      const first = user.name.split(' ')[0];
+      document.getElementById('welcome').textContent = `Welcome, ${first},`;
+    }
+  });
+</script>
+</body>
+</html>

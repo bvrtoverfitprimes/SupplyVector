@@ -1,0 +1,515 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "categories": {
+      "Clothing":           ["Cotton Fabric","Polyester Blends","Dyes & Chemicals","Thread & Yarn","Buttons & Zippers","Woven Labels","Packaging"],
+      "Electronics":        ["Semiconductor Chips","Display Panels","Lithium Battery Cells","PCB Assemblies","Passive Components","Cooling Systems","Power Supplies"],
+      "Food & Beverage":    ["Coffee Beans","Cocoa Beans","Wheat & Grains","Vegetable Oils","Spices & Herbs","Packaging Films","Sugar & Sweeteners"],
+      "Furniture & Home":   ["Hardwood Lumber","Softwood Lumber","MDF & Particleboard","Steel Frames","Foam & Padding","Fabric Upholstery","Hardware & Fittings"],
+      "Automotive":         ["High-Strength Steel","Wiring Harnesses","Rubber Seals & Gaskets","Aluminum Castings","Electronic Control Units","Glass & Glazing","Plastics & Polymers"],
+      "Pharmaceuticals":    ["Active Pharmaceutical Ingredients","Excipients","Glass Vials & Packaging","Chemical Reagents","Biologics Raw Materials","Sterile Filtration","Cold Chain Packaging"],
+      "Aerospace":          ["Titanium Alloys","Carbon Fiber Composites","Aerospace Fasteners","Avionics Components","Hydraulic Systems","Thermal Insulation","Precision Bearings"]
+    }
+  },
+
+  "Cotton Fabric": [
+    {"name":"Arvind Limited",       "city":"Ahmedabad, IN",    "loc":[23.03, 72.58],  "scores":{"cost":75,"speed":60,"resilience":70,"sustain":70,"ethics":75,"tariffs":60,"emissions":60,"supplier":78,"geo":70}},
+    {"name":"Texhong Textile",      "city":"Shanghai, CN",     "loc":[31.23,121.47],  "scores":{"cost":84,"speed":78,"resilience":52,"sustain":50,"ethics":52,"tariffs":28,"emissions":50,"supplier":60,"geo":38}},
+    {"name":"Cone Denim",           "city":"Greensboro, US",   "loc":[36.07,-79.79],  "scores":{"cost":45,"speed":92,"resilience":90,"sustain":78,"ethics":92,"tariffs":96,"emissions":78,"supplier":88,"geo":96}},
+    {"name":"Esquel Group",         "city":"Guilin, CN",       "loc":[25.27,110.29],  "scores":{"cost":70,"speed":76,"resilience":58,"sustain":72,"ethics":64,"tariffs":34,"emissions":64,"supplier":68,"geo":44}},
+    {"name":"Albini Group",         "city":"Albino, IT",       "loc":[45.77,  9.80],  "scores":{"cost":42,"speed":76,"resilience":90,"sustain":86,"ethics":92,"tariffs":76,"emissions":86,"supplier":90,"geo":92}},
+    {"name":"Milliken & Company",   "city":"Spartanburg, US",  "loc":[34.95,-81.93],  "scores":{"cost":48,"speed":90,"resilience":90,"sustain":82,"ethics":92,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"Calik Denim",          "city":"Istanbul, TR",     "loc":[41.01, 28.97],  "scores":{"cost":66,"speed":72,"resilience":72,"sustain":70,"ethics":72,"tariffs":64,"emissions":68,"supplier":72,"geo":64}},
+    {"name":"Trident Group",        "city":"Barnala, IN",      "loc":[30.38, 75.55],  "scores":{"cost":77,"speed":62,"resilience":68,"sustain":68,"ethics":72,"tariffs":60,"emissions":60,"supplier":72,"geo":68}},
+    {"name":"Unitika Ltd",          "city":"Osaka, JP",        "loc":[34.69,135.50],  "scores":{"cost":55,"speed":84,"resilience":88,"sustain":82,"ethics":88,"tariffs":70,"emissions":80,"supplier":88,"geo":90}},
+    {"name":"Bossa Tekstil",        "city":"Istanbul, TR",     "loc":[41.01, 28.97],  "scores":{"cost":65,"speed":72,"resilience":72,"sustain":68,"ethics":70,"tariffs":64,"emissions":66,"supplier":70,"geo":64}},
+    {"name":"Welspun India",        "city":"Mumbai, IN",       "loc":[19.08, 72.88],  "scores":{"cost":74,"speed":65,"resilience":70,"sustain":68,"ethics":72,"tariffs":62,"emissions":62,"supplier":74,"geo":70}},
+    {"name":"Vardhman Textiles",    "city":"Ludhiana, IN",     "loc":[30.90, 75.85],  "scores":{"cost":76,"speed":64,"resilience":70,"sustain":70,"ethics":74,"tariffs":60,"emissions":62,"supplier":76,"geo":70}},
+    {"name":"Naveena Group",        "city":"Karachi, PK",      "loc":[24.86, 67.01],  "scores":{"cost":85,"speed":52,"resilience":50,"sustain":54,"ethics":58,"tariffs":64,"emissions":52,"supplier":52,"geo":34}},
+    {"name":"Pacific Textiles",     "city":"Hong Kong, HK",   "loc":[22.32,114.17],  "scores":{"cost":68,"speed":78,"resilience":68,"sustain":64,"ethics":68,"tariffs":44,"emissions":62,"supplier":68,"geo":50}},
+    {"name":"Shandong Ruyi",        "city":"Jining, CN",       "loc":[35.41,116.59],  "scores":{"cost":82,"speed":74,"resilience":54,"sustain":48,"ethics":50,"tariffs":28,"emissions":48,"supplier":58,"geo":38}}
+  ],
+
+  "Polyester Blends": [
+    {"name":"Toray Industries",          "city":"Tokyo, JP",         "loc":[35.68,139.69],  "scores":{"cost":50,"speed":82,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":78,"supplier":90,"geo":92}},
+    {"name":"Reliance Industries",       "city":"Mumbai, IN",        "loc":[19.08, 72.88],  "scores":{"cost":75,"speed":64,"resilience":70,"sustain":60,"ethics":68,"tariffs":64,"emissions":56,"supplier":74,"geo":70}},
+    {"name":"Hyosung TNC",              "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":60,"speed":80,"resilience":84,"sustain":78,"ethics":84,"tariffs":70,"emissions":72,"supplier":84,"geo":82}},
+    {"name":"Indorama Ventures",        "city":"Bangkok, TH",        "loc":[13.75,100.50],  "scores":{"cost":72,"speed":70,"resilience":70,"sustain":68,"ethics":70,"tariffs":65,"emissions":64,"supplier":70,"geo":72}},
+    {"name":"Sinopec Fibers",           "city":"Shanghai, CN",       "loc":[31.23,121.47],  "scores":{"cost":88,"speed":76,"resilience":52,"sustain":44,"ethics":48,"tariffs":28,"emissions":44,"supplier":58,"geo":38}},
+    {"name":"Invista",                  "city":"Wichita, US",        "loc":[37.69,-97.34],  "scores":{"cost":52,"speed":90,"resilience":90,"sustain":80,"ethics":92,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"BASF SE",                  "city":"Ludwigshafen, DE",   "loc":[49.48,  8.43],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":90,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}},
+    {"name":"Far Eastern New Century",  "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":65,"speed":76,"resilience":74,"sustain":70,"ethics":74,"tariffs":60,"emissions":68,"supplier":74,"geo":58}},
+    {"name":"Teijin Ltd",               "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":82,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Unifi Inc.",               "city":"Greensboro, US",     "loc":[36.07,-79.79],  "scores":{"cost":50,"speed":90,"resilience":88,"sustain":78,"ethics":90,"tariffs":96,"emissions":78,"supplier":88,"geo":96}},
+    {"name":"Nan Ya Plastics",          "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":66,"speed":74,"resilience":74,"sustain":68,"ethics":72,"tariffs":60,"emissions":66,"supplier":72,"geo":56}},
+    {"name":"Ester Industries",         "city":"Delhi, IN",          "loc":[28.61, 77.21],  "scores":{"cost":78,"speed":62,"resilience":68,"sustain":62,"ethics":68,"tariffs":62,"emissions":58,"supplier":68,"geo":68}},
+    {"name":"Huvis Corp",               "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":62,"speed":78,"resilience":82,"sustain":76,"ethics":82,"tariffs":70,"emissions":70,"supplier":82,"geo":82}}
+  ],
+
+  "Dyes & Chemicals": [
+    {"name":"Huntsman Corporation",     "city":"Houston, US",        "loc":[29.76,-95.37],  "scores":{"cost":52,"speed":88,"resilience":88,"sustain":78,"ethics":90,"tariffs":94,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"DyStar Group",             "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":60,"speed":78,"resilience":80,"sustain":82,"ethics":82,"tariffs":75,"emissions":78,"supplier":80,"geo":92}},
+    {"name":"Archroma",                 "city":"Reinach, CH",        "loc":[47.49,  7.59],  "scores":{"cost":42,"speed":70,"resilience":92,"sustain":92,"ethics":92,"tariffs":75,"emissions":82,"supplier":92,"geo":96}},
+    {"name":"Atul Ltd",                 "city":"Valsad, IN",         "loc":[20.61, 72.92],  "scores":{"cost":76,"speed":60,"resilience":68,"sustain":62,"ethics":72,"tariffs":65,"emissions":58,"supplier":72,"geo":68}},
+    {"name":"Kiri Industries",          "city":"Vadodara, IN",       "loc":[22.31, 73.18],  "scores":{"cost":80,"speed":60,"resilience":65,"sustain":60,"ethics":68,"tariffs":65,"emissions":55,"supplier":68,"geo":68}},
+    {"name":"Lanxess AG",               "city":"Cologne, DE",        "loc":[50.94,  6.96],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":88,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":94}},
+    {"name":"Everlight Chemical",       "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":64,"speed":74,"resilience":74,"sustain":68,"ethics":72,"tariffs":60,"emissions":66,"supplier":72,"geo":58}},
+    {"name":"Bodal Chemicals",          "city":"Ahmedabad, IN",      "loc":[23.03, 72.58],  "scores":{"cost":78,"speed":58,"resilience":64,"sustain":58,"ethics":64,"tariffs":62,"emissions":54,"supplier":64,"geo":68}}
+  ],
+
+  "Thread & Yarn": [
+    {"name":"Coats Group",              "city":"London, UK",         "loc":[51.51, -0.13],  "scores":{"cost":58,"speed":80,"resilience":88,"sustain":82,"ethics":92,"tariffs":70,"emissions":76,"supplier":88,"geo":92}},
+    {"name":"American & Efird",         "city":"Charlotte, US",      "loc":[35.23,-80.84],  "scores":{"cost":54,"speed":88,"resilience":82,"sustain":74,"ethics":88,"tariffs":94,"emissions":72,"supplier":82,"geo":96}},
+    {"name":"Amann Group",              "city":"Stuttgart, DE",      "loc":[48.78,  9.18],  "scores":{"cost":46,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":82,"supplier":92,"geo":94}},
+    {"name":"Madeira Garnfabrik",       "city":"Freiburg, DE",       "loc":[47.99,  7.85],  "scores":{"cost":50,"speed":74,"resilience":88,"sustain":86,"ethics":88,"tariffs":76,"emissions":78,"supplier":88,"geo":94}},
+    {"name":"Vardhman Threads",         "city":"Ludhiana, IN",       "loc":[30.90, 75.85],  "scores":{"cost":76,"speed":62,"resilience":68,"sustain":66,"ethics":70,"tariffs":60,"emissions":60,"supplier":70,"geo":68}},
+    {"name":"Mettler Toledo Threads",   "city":"Zurich, CH",         "loc":[47.38,  8.54],  "scores":{"cost":40,"speed":72,"resilience":92,"sustain":90,"ethics":92,"tariffs":76,"emissions":84,"supplier":92,"geo":96}}
+  ],
+
+  "Buttons & Zippers": [
+    {"name":"YKK Fastening",            "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":50,"speed":88,"resilience":92,"sustain":82,"ethics":92,"tariffs":70,"emissions":78,"supplier":92,"geo":92}},
+    {"name":"Riri Group",               "city":"Mendrisio, CH",      "loc":[45.87,  8.98],  "scores":{"cost":38,"speed":70,"resilience":92,"sustain":92,"ethics":92,"tariffs":75,"emissions":82,"supplier":92,"geo":96}},
+    {"name":"Talon Zippers",            "city":"Atlanta, US",        "loc":[33.75,-84.39],  "scores":{"cost":52,"speed":90,"resilience":82,"sustain":72,"ethics":88,"tariffs":94,"emissions":72,"supplier":82,"geo":96}},
+    {"name":"Morito Co.",               "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":55,"speed":82,"resilience":86,"sustain":80,"ethics":88,"tariffs":70,"emissions":72,"supplier":86,"geo":90}},
+    {"name":"SBS Zipper",               "city":"Quanzhou, CN",       "loc":[24.87,118.68],  "scores":{"cost":88,"speed":76,"resilience":58,"sustain":48,"ethics":52,"tariffs":28,"emissions":48,"supplier":60,"geo":40}},
+    {"name":"Coats Opti",               "city":"Manchester, UK",     "loc":[53.48, -2.24],  "scores":{"cost":56,"speed":80,"resilience":86,"sustain":80,"ethics":90,"tariffs":70,"emissions":76,"supplier":86,"geo":92}},
+    {"name":"Scovill Fasteners",        "city":"Clarkesville, US",   "loc":[34.62,-83.52],  "scores":{"cost":54,"speed":88,"resilience":82,"sustain":74,"ethics":88,"tariffs":94,"emissions":72,"supplier":82,"geo":96}}
+  ],
+
+  "Woven Labels": [
+    {"name":"Avery Dennison",           "city":"Glendale, US",       "loc":[34.14,-118.25], "scores":{"cost":54,"speed":88,"resilience":88,"sustain":80,"ethics":92,"tariffs":94,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"SML Group",                "city":"Hong Kong, HK",      "loc":[22.32,114.17],  "scores":{"cost":72,"speed":82,"resilience":70,"sustain":66,"ethics":70,"tariffs":44,"emissions":62,"supplier":72,"geo":52}},
+    {"name":"Checkpoint Systems",       "city":"Thorofare, US",      "loc":[39.85,-75.13],  "scores":{"cost":60,"speed":82,"resilience":82,"sustain":74,"ethics":88,"tariffs":94,"emissions":72,"supplier":82,"geo":96}},
+    {"name":"r-pac International",      "city":"New York, US",       "loc":[40.71,-74.01],  "scores":{"cost":56,"speed":88,"resilience":80,"sustain":74,"ethics":86,"tariffs":94,"emissions":72,"supplier":82,"geo":96}},
+    {"name":"Trimco Group",             "city":"Hong Kong, HK",      "loc":[22.32,114.17],  "scores":{"cost":68,"speed":80,"resilience":70,"sustain":64,"ethics":68,"tariffs":44,"emissions":60,"supplier":70,"geo":52}}
+  ],
+
+  "Packaging": [
+    {"name":"Smurfit Westrock",         "city":"Dublin, IE",         "loc":[53.35, -6.26],  "scores":{"cost":60,"speed":80,"resilience":88,"sustain":92,"ethics":92,"tariffs":70,"emissions":88,"supplier":88,"geo":94}},
+    {"name":"International Paper",      "city":"Memphis, US",        "loc":[35.15,-90.05],  "scores":{"cost":64,"speed":88,"resilience":88,"sustain":74,"ethics":88,"tariffs":94,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Mondi Group",              "city":"Vienna, AT",         "loc":[48.21, 16.37],  "scores":{"cost":54,"speed":80,"resilience":88,"sustain":88,"ethics":92,"tariffs":76,"emissions":82,"supplier":88,"geo":94}},
+    {"name":"Nine Dragons Paper",       "city":"Dongguan, CN",       "loc":[23.02,113.75],  "scores":{"cost":88,"speed":76,"resilience":62,"sustain":56,"ethics":56,"tariffs":28,"emissions":52,"supplier":62,"geo":40}},
+    {"name":"DS Smith",                 "city":"London, UK",         "loc":[51.51, -0.13],  "scores":{"cost":58,"speed":80,"resilience":86,"sustain":88,"ethics":90,"tariffs":70,"emissions":84,"supplier":88,"geo":92}},
+    {"name":"Sealed Air Corp",          "city":"Charlotte, US",      "loc":[35.23,-80.84],  "scores":{"cost":58,"speed":88,"resilience":86,"sustain":76,"ethics":88,"tariffs":94,"emissions":74,"supplier":86,"geo":96}}
+  ],
+
+  "Semiconductor Chips": [
+    {"name":"TSMC",                     "city":"Hsinchu, TW",        "loc":[24.81,120.97],  "scores":{"cost":55,"speed":80,"resilience":76,"sustain":76,"ethics":82,"tariffs":60,"emissions":72,"supplier":80,"geo":56}},
+    {"name":"Samsung Foundry",          "city":"Suwon, KR",          "loc":[37.26,127.00],  "scores":{"cost":58,"speed":82,"resilience":86,"sustain":80,"ethics":86,"tariffs":70,"emissions":76,"supplier":86,"geo":82}},
+    {"name":"Intel Foundry",            "city":"Hillsboro, US",      "loc":[45.52,-122.99], "scores":{"cost":42,"speed":92,"resilience":92,"sustain":82,"ethics":94,"tariffs":96,"emissions":82,"supplier":92,"geo":96}},
+    {"name":"GlobalFoundries",          "city":"Malta, US",          "loc":[42.99,-73.79],  "scores":{"cost":44,"speed":90,"resilience":90,"sustain":80,"ethics":92,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"SMIC",                     "city":"Shanghai, CN",       "loc":[31.23,121.47],  "scores":{"cost":80,"speed":76,"resilience":50,"sustain":48,"ethics":50,"tariffs":26,"emissions":48,"supplier":56,"geo":38}},
+    {"name":"UMC",                      "city":"Hsinchu, TW",        "loc":[24.81,120.97],  "scores":{"cost":62,"speed":80,"resilience":74,"sustain":70,"ethics":78,"tariffs":60,"emissions":70,"supplier":76,"geo":56}},
+    {"name":"STMicroelectronics",       "city":"Geneva, CH",         "loc":[46.20,  6.15],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":78,"emissions":88,"supplier":92,"geo":96}},
+    {"name":"Infineon Technologies",    "city":"Munich, DE",         "loc":[48.14, 11.58],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}},
+    {"name":"NXP Semiconductors",       "city":"Eindhoven, NL",      "loc":[51.44,  5.48],  "scores":{"cost":46,"speed":80,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}},
+    {"name":"Texas Instruments",        "city":"Dallas, US",         "loc":[32.78,-96.80],  "scores":{"cost":46,"speed":92,"resilience":92,"sustain":80,"ethics":92,"tariffs":96,"emissions":80,"supplier":92,"geo":96}},
+    {"name":"Microchip Technology",     "city":"Chandler, US",       "loc":[33.31,-111.84], "scores":{"cost":48,"speed":90,"resilience":90,"sustain":78,"ethics":90,"tariffs":96,"emissions":78,"supplier":90,"geo":96}},
+    {"name":"ON Semiconductor",         "city":"Phoenix, US",        "loc":[33.45,-112.07], "scores":{"cost":50,"speed":90,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"Tower Semiconductor",      "city":"Migdal HaEmek, IL",  "loc":[32.68, 35.24],  "scores":{"cost":56,"speed":76,"resilience":72,"sustain":70,"ethics":78,"tariffs":64,"emissions":68,"supplier":74,"geo":58}},
+    {"name":"PSMC",                     "city":"Hsinchu, TW",        "loc":[24.81,120.97],  "scores":{"cost":64,"speed":78,"resilience":72,"sustain":68,"ethics":76,"tariffs":60,"emissions":66,"supplier":74,"geo":56}}
+  ],
+
+  "Display Panels": [
+    {"name":"Samsung Display",          "city":"Asan, KR",           "loc":[36.79,127.01],  "scores":{"cost":56,"speed":82,"resilience":86,"sustain":78,"ethics":86,"tariffs":70,"emissions":74,"supplier":86,"geo":82}},
+    {"name":"LG Display",               "city":"Paju, KR",           "loc":[37.77,126.78],  "scores":{"cost":58,"speed":82,"resilience":84,"sustain":76,"ethics":84,"tariffs":70,"emissions":72,"supplier":84,"geo":82}},
+    {"name":"BOE Technology",           "city":"Beijing, CN",        "loc":[39.90,116.41],  "scores":{"cost":82,"speed":76,"resilience":52,"sustain":46,"ethics":50,"tariffs":26,"emissions":48,"supplier":58,"geo":38}},
+    {"name":"AU Optronics",             "city":"Hsinchu, TW",        "loc":[24.81,120.97],  "scores":{"cost":62,"speed":78,"resilience":74,"sustain":70,"ethics":76,"tariffs":60,"emissions":68,"supplier":76,"geo":56}},
+    {"name":"Innolux Corp",             "city":"Tainan, TW",         "loc":[22.99,120.21],  "scores":{"cost":64,"speed":76,"resilience":72,"sustain":68,"ethics":74,"tariffs":60,"emissions":66,"supplier":74,"geo":56}},
+    {"name":"Japan Display Inc",        "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":84,"resilience":86,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":86,"geo":90}},
+    {"name":"Sharp Corp",               "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":54,"speed":84,"resilience":86,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":86,"geo":90}},
+    {"name":"Tianma Group",             "city":"Wuhan, CN",          "loc":[30.60,114.30],  "scores":{"cost":84,"speed":74,"resilience":50,"sustain":46,"ethics":48,"tariffs":26,"emissions":46,"supplier":56,"geo":38}},
+    {"name":"Visionox",                 "city":"Suzhou, CN",         "loc":[31.30,120.60],  "scores":{"cost":82,"speed":76,"resilience":52,"sustain":48,"ethics":50,"tariffs":26,"emissions":48,"supplier":58,"geo":40}},
+    {"name":"Universal Display",        "city":"Ewing, US",          "loc":[40.27,-74.79],  "scores":{"cost":44,"speed":90,"resilience":90,"sustain":80,"ethics":92,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"Tianma Microelectronics",  "city":"Shenzhen, CN",       "loc":[22.54,114.06],  "scores":{"cost":82,"speed":76,"resilience":52,"sustain":48,"ethics":50,"tariffs":26,"emissions":48,"supplier":58,"geo":40}},
+    {"name":"E Ink Holdings",           "city":"Hsinchu, TW",        "loc":[24.81,120.97],  "scores":{"cost":60,"speed":76,"resilience":74,"sustain":74,"ethics":78,"tariffs":60,"emissions":72,"supplier":76,"geo":56}}
+  ],
+
+  "Lithium Battery Cells": [
+    {"name":"CATL",                     "city":"Ningde, CN",         "loc":[26.66,119.55],  "scores":{"cost":82,"speed":74,"resilience":56,"sustain":52,"ethics":54,"tariffs":26,"emissions":52,"supplier":60,"geo":40}},
+    {"name":"BYD Co.",                  "city":"Shenzhen, CN",       "loc":[22.54,114.06],  "scores":{"cost":80,"speed":76,"resilience":56,"sustain":54,"ethics":54,"tariffs":26,"emissions":54,"supplier":60,"geo":40}},
+    {"name":"LG Energy Solution",       "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":58,"speed":82,"resilience":86,"sustain":78,"ethics":86,"tariffs":70,"emissions":74,"supplier":86,"geo":82}},
+    {"name":"Panasonic Energy",         "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":52,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Samsung SDI",              "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":58,"speed":82,"resilience":86,"sustain":78,"ethics":86,"tariffs":70,"emissions":74,"supplier":86,"geo":82}},
+    {"name":"SK On",                    "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":60,"speed":80,"resilience":84,"sustain":76,"ethics":84,"tariffs":70,"emissions":72,"supplier":84,"geo":82}},
+    {"name":"CALB",                     "city":"Changzhou, CN",      "loc":[31.77,119.97],  "scores":{"cost":82,"speed":74,"resilience":54,"sustain":50,"ethics":52,"tariffs":26,"emissions":50,"supplier":58,"geo":40}},
+    {"name":"Northvolt",                "city":"Skellefteå, SE",     "loc":[64.75, 20.95],  "scores":{"cost":44,"speed":72,"resilience":90,"sustain":94,"ethics":94,"tariffs":74,"emissions":94,"supplier":90,"geo":94}},
+    {"name":"Envision AESC",            "city":"Sunderland, UK",     "loc":[54.91, -1.38],  "scores":{"cost":50,"speed":80,"resilience":86,"sustain":82,"ethics":90,"tariffs":70,"emissions":84,"supplier":86,"geo":92}},
+    {"name":"ACC (Automotive Cells)",   "city":"Douvrin, FR",        "loc":[50.49,  2.83],  "scores":{"cost":46,"speed":74,"resilience":88,"sustain":88,"ethics":90,"tariffs":76,"emissions":86,"supplier":88,"geo":92}},
+    {"name":"Freyr Battery",            "city":"Mo i Rana, NO",      "loc":[66.31, 14.14],  "scores":{"cost":44,"speed":70,"resilience":88,"sustain":94,"ethics":94,"tariffs":74,"emissions":94,"supplier":86,"geo":94}},
+    {"name":"EnerTech International",   "city":"Seoul, KR",          "loc":[37.57,126.98],  "scores":{"cost":62,"speed":78,"resilience":82,"sustain":74,"ethics":82,"tariffs":70,"emissions":70,"supplier":80,"geo":82}}
+  ],
+
+  "PCB Assemblies": [
+    {"name":"Foxconn Technology",       "city":"Shenzhen, CN",       "loc":[22.54,114.06],  "scores":{"cost":82,"speed":80,"resilience":56,"sustain":50,"ethics":52,"tariffs":26,"emissions":50,"supplier":62,"geo":40}},
+    {"name":"Jabil Inc",                "city":"St. Petersburg, US", "loc":[27.77,-82.64],  "scores":{"cost":52,"speed":88,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"Flextronics",              "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":62,"speed":82,"resilience":82,"sustain":74,"ethics":82,"tariffs":76,"emissions":72,"supplier":82,"geo":92}},
+    {"name":"Celestica Inc",            "city":"Toronto, CA",        "loc":[43.65,-79.38],  "scores":{"cost":54,"speed":86,"resilience":86,"sustain":78,"ethics":90,"tariffs":90,"emissions":76,"supplier":88,"geo":94}},
+    {"name":"Sanmina Corp",             "city":"San Jose, US",       "loc":[37.34,-121.89], "scores":{"cost":52,"speed":88,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"TTM Technologies",         "city":"Milpitas, US",       "loc":[37.43,-121.89], "scores":{"cost":54,"speed":88,"resilience":86,"sustain":74,"ethics":88,"tariffs":96,"emissions":74,"supplier":86,"geo":96}},
+    {"name":"Tripod Technology",        "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":66,"speed":76,"resilience":72,"sustain":68,"ethics":74,"tariffs":60,"emissions":66,"supplier":72,"geo":56}},
+    {"name":"Compeq Manufacturing",     "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":64,"speed":78,"resilience":74,"sustain":70,"ethics":76,"tariffs":60,"emissions":68,"supplier":74,"geo":56}}
+  ],
+
+  "Passive Components": [
+    {"name":"Murata Manufacturing",     "city":"Kyoto, JP",          "loc":[35.02,135.76],  "scores":{"cost":50,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"TDK Corporation",          "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":82,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Vishay Intertechnology",   "city":"Malvern, US",        "loc":[40.04,-75.51],  "scores":{"cost":54,"speed":88,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"YAGEO Corp",               "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":64,"speed":78,"resilience":74,"sustain":70,"ethics":76,"tariffs":60,"emissions":68,"supplier":74,"geo":56}},
+    {"name":"Kemet Corp",               "city":"Greenville, US",     "loc":[34.85,-82.40],  "scores":{"cost":56,"speed":88,"resilience":86,"sustain":74,"ethics":88,"tariffs":96,"emissions":74,"supplier":86,"geo":96}},
+    {"name":"Nichicon Corp",            "city":"Kyoto, JP",          "loc":[35.02,135.76],  "scores":{"cost":52,"speed":82,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Panasonic Components",     "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":54,"speed":82,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}}
+  ],
+
+  "Cooling Systems": [
+    {"name":"Nidec Corporation",        "city":"Kyoto, JP",          "loc":[35.02,135.76],  "scores":{"cost":52,"speed":82,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Ebm-papst",                "city":"Mulfingen, DE",      "loc":[49.28,  9.79],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}},
+    {"name":"Delta Electronics",        "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":62,"speed":80,"resilience":76,"sustain":72,"ethics":78,"tariffs":60,"emissions":70,"supplier":76,"geo":58}},
+    {"name":"Thermalright",             "city":"Shenzhen, CN",       "loc":[22.54,114.06],  "scores":{"cost":84,"speed":76,"resilience":54,"sustain":48,"ethics":52,"tariffs":26,"emissions":48,"supplier":60,"geo":40}},
+    {"name":"Cooler Master",            "city":"Zhonghe, TW",        "loc":[24.99,121.51],  "scores":{"cost":66,"speed":78,"resilience":72,"sustain":66,"ethics":72,"tariffs":60,"emissions":64,"supplier":72,"geo":56}},
+    {"name":"Vertiv Holdings",          "city":"Columbus, US",       "loc":[39.96,-82.99],  "scores":{"cost":52,"speed":88,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":76,"supplier":88,"geo":96}}
+  ],
+
+  "Power Supplies": [
+    {"name":"Delta Electronics",        "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":62,"speed":80,"resilience":76,"sustain":72,"ethics":78,"tariffs":60,"emissions":70,"supplier":76,"geo":58}},
+    {"name":"Bel Fuse Inc",             "city":"Jersey City, US",    "loc":[40.72,-74.07],  "scores":{"cost":54,"speed":88,"resilience":86,"sustain":74,"ethics":88,"tariffs":96,"emissions":74,"supplier":86,"geo":96}},
+    {"name":"Mean Well",                "city":"New Taipei, TW",     "loc":[25.01,121.46],  "scores":{"cost":64,"speed":78,"resilience":74,"sustain":70,"ethics":76,"tariffs":60,"emissions":68,"supplier":74,"geo":56}},
+    {"name":"Acbel Polytech",           "city":"Taipei, TW",         "loc":[25.04,121.56],  "scores":{"cost":66,"speed":76,"resilience":72,"sustain":68,"ethics":74,"tariffs":60,"emissions":66,"supplier":72,"geo":56}},
+    {"name":"Vicor Corporation",        "city":"Andover, US",        "loc":[42.66,-71.13],  "scores":{"cost":46,"speed":88,"resilience":90,"sustain":78,"ethics":92,"tariffs":96,"emissions":78,"supplier":90,"geo":96}},
+    {"name":"SL Power Electronics",    "city":"Oxnard, US",          "loc":[34.20,-119.18], "scores":{"cost":52,"speed":86,"resilience":86,"sustain":74,"ethics":88,"tariffs":96,"emissions":74,"supplier":86,"geo":96}}
+  ],
+
+  "Coffee Beans": [
+    {"name":"Nestlé Green Bean",        "city":"Geneva, CH",         "loc":[46.20,  6.15],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":86,"ethics":88,"tariffs":78,"emissions":86,"supplier":90,"geo":96}},
+    {"name":"JM Smucker",              "city":"Orrville, US",        "loc":[40.84,-81.77],  "scores":{"cost":50,"speed":90,"resilience":88,"sustain":76,"ethics":88,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"Jacobs Douwe Egberts",    "city":"Amsterdam, NL",       "loc":[52.37,  4.90],  "scores":{"cost":46,"speed":80,"resilience":90,"sustain":84,"ethics":88,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Olam International",      "city":"Singapore, SG",       "loc":[ 1.35,103.82],  "scores":{"cost":54,"speed":84,"resilience":88,"sustain":78,"ethics":82,"tariffs":80,"emissions":76,"supplier":86,"geo":92}},
+    {"name":"Cooxupé Co-op",          "city":"Guaxupé, BR",          "loc":[-21.31,-46.72], "scores":{"cost":72,"speed":64,"resilience":62,"sustain":68,"ethics":70,"tariffs":48,"emissions":68,"supplier":62,"geo":60}},
+    {"name":"Luis Alberto Balcarcel",  "city":"Guatemala City, GT",  "loc":[14.63,-90.52],  "scores":{"cost":76,"speed":64,"resilience":60,"sustain":64,"ethics":64,"tariffs":58,"emissions":64,"supplier":60,"geo":58}},
+    {"name":"Sucafina SA",             "city":"Geneva, CH",          "loc":[46.20,  6.15],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":84,"ethics":88,"tariffs":78,"emissions":84,"supplier":88,"geo":96}},
+    {"name":"Ecom Agroindustrial",     "city":"Zug, CH",             "loc":[47.17,  8.52],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":84,"ethics":86,"tariffs":78,"emissions":84,"supplier":88,"geo":96}},
+    {"name":"Volcafé",                 "city":"Winterthur, CH",      "loc":[47.50,  8.72],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":84,"ethics":86,"tariffs":78,"emissions":84,"supplier":88,"geo":96}},
+    {"name":"Café Imports",            "city":"Minneapolis, US",     "loc":[44.98,-93.27],  "scores":{"cost":52,"speed":86,"resilience":82,"sustain":80,"ethics":86,"tariffs":96,"emissions":78,"supplier":82,"geo":96}},
+    {"name":"Royal Coffee",            "city":"Emeryville, US",      "loc":[37.83,-122.29], "scores":{"cost":54,"speed":84,"resilience":80,"sustain":78,"ethics":84,"tariffs":96,"emissions":76,"supplier":80,"geo":96}},
+    {"name":"Trabocca BV",             "city":"Amsterdam, NL",       "loc":[52.37,  4.90],  "scores":{"cost":48,"speed":78,"resilience":88,"sustain":84,"ethics":86,"tariffs":76,"emissions":82,"supplier":86,"geo":94}}
+  ],
+
+  "Cocoa Beans": [
+    {"name":"Barry Callebaut",          "city":"Zurich, CH",         "loc":[47.38,  8.54],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":84,"ethics":86,"tariffs":78,"emissions":82,"supplier":88,"geo":96}},
+    {"name":"Olam Cocoa",               "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":56,"speed":82,"resilience":86,"sustain":76,"ethics":80,"tariffs":78,"emissions":74,"supplier":84,"geo":90}},
+    {"name":"Cargill Cocoa",            "city":"Minneapolis, US",    "loc":[44.98,-93.27],  "scores":{"cost":54,"speed":86,"resilience":86,"sustain":74,"ethics":82,"tariffs":94,"emissions":72,"supplier":84,"geo":96}},
+    {"name":"Touton SA",                "city":"Bordeaux, FR",       "loc":[44.84, -0.58],  "scores":{"cost":50,"speed":74,"resilience":86,"sustain":82,"ethics":84,"tariffs":76,"emissions":80,"supplier":84,"geo":92}},
+    {"name":"Sucden",                   "city":"Paris, FR",          "loc":[48.86,  2.35],  "scores":{"cost":50,"speed":74,"resilience":86,"sustain":80,"ethics":82,"tariffs":76,"emissions":78,"supplier":84,"geo":92}},
+    {"name":"Ecom Trading Cocoa",       "city":"Zug, CH",            "loc":[47.17,  8.52],  "scores":{"cost":48,"speed":74,"resilience":88,"sustain":82,"ethics":84,"tariffs":78,"emissions":80,"supplier":86,"geo":96}}
+  ],
+
+  "Wheat & Grains": [
+    {"name":"Cargill Grain",            "city":"Minneapolis, US",    "loc":[44.98,-93.27],  "scores":{"cost":54,"speed":86,"resilience":88,"sustain":72,"ethics":82,"tariffs":94,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"ADM",                      "city":"Chicago, US",        "loc":[41.88,-87.63],  "scores":{"cost":54,"speed":88,"resilience":88,"sustain":72,"ethics":82,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"Bunge Limited",            "city":"St. Louis, US",      "loc":[38.63,-90.20],  "scores":{"cost":56,"speed":86,"resilience":86,"sustain":70,"ethics":80,"tariffs":96,"emissions":68,"supplier":82,"geo":96}},
+    {"name":"Louis Dreyfus Company",    "city":"Rotterdam, NL",      "loc":[51.92,  4.48],  "scores":{"cost":54,"speed":78,"resilience":88,"sustain":76,"ethics":82,"tariffs":76,"emissions":74,"supplier":84,"geo":94}},
+    {"name":"Glencore Agriculture",     "city":"Rotterdam, NL",      "loc":[51.92,  4.48],  "scores":{"cost":56,"speed":78,"resilience":86,"sustain":72,"ethics":78,"tariffs":76,"emissions":70,"supplier":82,"geo":94}},
+    {"name":"GrainCorp",                "city":"Sydney, AU",         "loc":[-33.87,151.21], "scores":{"cost":58,"speed":80,"resilience":84,"sustain":76,"ethics":82,"tariffs":76,"emissions":74,"supplier":82,"geo":88}}
+  ],
+
+  "Vegetable Oils": [
+    {"name":"Wilmar International",     "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":60,"speed":80,"resilience":82,"sustain":66,"ethics":68,"tariffs":76,"emissions":62,"supplier":78,"geo":88}},
+    {"name":"Bunge Oils",               "city":"St. Louis, US",      "loc":[38.63,-90.20],  "scores":{"cost":56,"speed":84,"resilience":86,"sustain":70,"ethics":80,"tariffs":96,"emissions":68,"supplier":82,"geo":96}},
+    {"name":"Cargill Oils",             "city":"Wayzata, US",        "loc":[44.97,-93.51],  "scores":{"cost":54,"speed":86,"resilience":88,"sustain":72,"ethics":82,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"IOI Corporation",          "city":"Kuala Lumpur, MY",   "loc":[ 3.14,101.69],  "scores":{"cost":68,"speed":72,"resilience":72,"sustain":62,"ethics":64,"tariffs":68,"emissions":58,"supplier":70,"geo":72}},
+    {"name":"Musim Mas",                "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":64,"speed":76,"resilience":76,"sustain":64,"ethics":66,"tariffs":76,"emissions":60,"supplier":74,"geo":88}},
+    {"name":"Archer Daniels Oils",      "city":"Decatur, US",        "loc":[39.84,-88.95],  "scores":{"cost":54,"speed":86,"resilience":86,"sustain":70,"ethics":80,"tariffs":96,"emissions":68,"supplier":82,"geo":96}}
+  ],
+
+  "Spices & Herbs": [
+    {"name":"McCormick & Co",           "city":"Hunt Valley, US",    "loc":[39.49,-76.65],  "scores":{"cost":52,"speed":88,"resilience":88,"sustain":76,"ethics":88,"tariffs":96,"emissions":74,"supplier":86,"geo":96}},
+    {"name":"Olam Spices",              "city":"Singapore, SG",      "loc":[ 1.35,103.82],  "scores":{"cost":58,"speed":80,"resilience":84,"sustain":72,"ethics":78,"tariffs":76,"emissions":70,"supplier":80,"geo":88}},
+    {"name":"Synthite Industries",      "city":"Cochin, IN",         "loc":[ 9.93, 76.27],  "scores":{"cost":74,"speed":64,"resilience":68,"sustain":66,"ethics":70,"tariffs":62,"emissions":62,"supplier":68,"geo":66}},
+    {"name":"Döhler GmbH",              "city":"Darmstadt, DE",      "loc":[49.87,  8.65],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":86,"ethics":88,"tariffs":76,"emissions":84,"supplier":88,"geo":94}},
+    {"name":"Givaudan",                 "city":"Vernier, CH",        "loc":[46.22,  6.09],  "scores":{"cost":42,"speed":74,"resilience":92,"sustain":88,"ethics":90,"tariffs":78,"emissions":86,"supplier":90,"geo":96}},
+    {"name":"ITC Spices",               "city":"Kolkata, IN",        "loc":[22.57, 88.36],  "scores":{"cost":76,"speed":62,"resilience":66,"sustain":64,"ethics":68,"tariffs":62,"emissions":60,"supplier":66,"geo":66}}
+  ],
+
+  "Packaging Films": [
+    {"name":"Amcor plc",                "city":"Zurich, CH",         "loc":[47.38,  8.54],  "scores":{"cost":50,"speed":78,"resilience":90,"sustain":84,"ethics":90,"tariffs":78,"emissions":82,"supplier":90,"geo":96}},
+    {"name":"Berry Global",             "city":"Evansville, US",     "loc":[37.97,-87.57],  "scores":{"cost":56,"speed":86,"resilience":86,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"Sealed Air Corp",          "city":"Charlotte, US",      "loc":[35.23,-80.84],  "scores":{"cost":56,"speed":86,"resilience":86,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"Huhtamäki",                "city":"Espoo, FI",          "loc":[60.25, 24.66],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":74,"emissions":84,"supplier":88,"geo":94}},
+    {"name":"Constantia Flexibles",     "city":"Vienna, AT",         "loc":[48.21, 16.37],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":94}},
+    {"name":"Uflex Ltd",                "city":"Noida, IN",          "loc":[28.57, 77.32],  "scores":{"cost":74,"speed":66,"resilience":68,"sustain":64,"ethics":68,"tariffs":62,"emissions":60,"supplier":70,"geo":68}}
+  ],
+
+  "Sugar & Sweeteners": [
+    {"name":"Südzucker AG",             "city":"Mannheim, DE",       "loc":[49.49,  8.47],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":94}},
+    {"name":"AB Sugar",                 "city":"London, UK",         "loc":[51.51, -0.13],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":80,"ethics":86,"tariffs":70,"emissions":78,"supplier":86,"geo":92}},
+    {"name":"Cargill Sugar",            "city":"Wayzata, US",        "loc":[44.97,-93.51],  "scores":{"cost":54,"speed":86,"resilience":86,"sustain":70,"ethics":80,"tariffs":96,"emissions":68,"supplier":82,"geo":96}},
+    {"name":"Louis Dreyfus Sugar",      "city":"Rotterdam, NL",      "loc":[51.92,  4.48],  "scores":{"cost":52,"speed":76,"resilience":88,"sustain":74,"ethics":80,"tariffs":76,"emissions":72,"supplier":82,"geo":94}},
+    {"name":"Mitr Phol Group",          "city":"Bangkok, TH",        "loc":[13.75,100.50],  "scores":{"cost":70,"speed":70,"resilience":70,"sustain":66,"ethics":68,"tariffs":64,"emissions":62,"supplier":68,"geo":72}},
+    {"name":"Tereos Group",             "city":"Lille, FR",          "loc":[50.63,  3.07],  "scores":{"cost":48,"speed":74,"resilience":88,"sustain":82,"ethics":86,"tariffs":76,"emissions":80,"supplier":86,"geo":92}}
+  ],
+
+  "Hardwood Lumber": [
+    {"name":"Weyerhaeuser",             "city":"Seattle, US",        "loc":[47.61,-122.33], "scores":{"cost":50,"speed":90,"resilience":88,"sustain":80,"ethics":90,"tariffs":96,"emissions":78,"supplier":88,"geo":96}},
+    {"name":"West Fraser Timber",       "city":"Vancouver, CA",      "loc":[49.25,-123.12], "scores":{"cost":52,"speed":88,"resilience":88,"sustain":82,"ethics":90,"tariffs":90,"emissions":80,"supplier":88,"geo":94}},
+    {"name":"Potlatch Deltic",          "city":"Spokane, US",        "loc":[47.66,-117.43], "scores":{"cost":52,"speed":90,"resilience":86,"sustain":80,"ethics":88,"tariffs":96,"emissions":78,"supplier":86,"geo":96}},
+    {"name":"Interfor Corp",            "city":"Vancouver, CA",      "loc":[49.25,-123.12], "scores":{"cost":54,"speed":88,"resilience":86,"sustain":80,"ethics":88,"tariffs":90,"emissions":78,"supplier":86,"geo":94}},
+    {"name":"Arauco",                   "city":"Santiago, CL",       "loc":[-33.45,-70.67], "scores":{"cost":66,"speed":64,"resilience":68,"sustain":72,"ethics":74,"tariffs":58,"emissions":70,"supplier":68,"geo":70}},
+    {"name":"Pfleiderer Group",         "city":"Neumarkt, DE",       "loc":[49.28, 11.46],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Egger Group",              "city":"St Johann, AT",      "loc":[47.52, 12.43],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Canfor Corp",              "city":"Vancouver, CA",      "loc":[49.25,-123.12], "scores":{"cost":54,"speed":88,"resilience":86,"sustain":80,"ethics":88,"tariffs":90,"emissions":80,"supplier":86,"geo":94}},
+    {"name":"Tolko Industries",         "city":"Vernon, CA",         "loc":[50.27,-119.27], "scores":{"cost":54,"speed":86,"resilience":84,"sustain":78,"ethics":86,"tariffs":90,"emissions":76,"supplier":84,"geo":92}},
+    {"name":"Resolute Forest Products", "city":"Montreal, CA",       "loc":[45.50,-73.57],  "scores":{"cost":54,"speed":86,"resilience":84,"sustain":78,"ethics":86,"tariffs":90,"emissions":76,"supplier":84,"geo":92}}
+  ],
+
+  "Softwood Lumber": [
+    {"name":"Weyerhaeuser",             "city":"Seattle, US",        "loc":[47.61,-122.33], "scores":{"cost":52,"speed":90,"resilience":88,"sustain":78,"ethics":88,"tariffs":96,"emissions":76,"supplier":86,"geo":96}},
+    {"name":"Sierra Pacific Industries","city":"Redding, US",        "loc":[40.59,-122.39], "scores":{"cost":54,"speed":88,"resilience":84,"sustain":76,"ethics":86,"tariffs":96,"emissions":74,"supplier":84,"geo":96}},
+    {"name":"Canfor Corp",              "city":"Vancouver, CA",      "loc":[49.25,-123.12], "scores":{"cost":54,"speed":88,"resilience":86,"sustain":80,"ethics":88,"tariffs":90,"emissions":78,"supplier":86,"geo":94}},
+    {"name":"Stora Enso",               "city":"Helsinki, FI",       "loc":[60.17, 24.94],  "scores":{"cost":46,"speed":74,"resilience":90,"sustain":90,"ethics":92,"tariffs":74,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"UPM-Kymmene",              "city":"Helsinki, FI",       "loc":[60.17, 24.94],  "scores":{"cost":46,"speed":74,"resilience":90,"sustain":90,"ethics":92,"tariffs":74,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Holcim Wood",              "city":"Rapperswil, CH",     "loc":[47.23,  8.82],  "scores":{"cost":44,"speed":72,"resilience":88,"sustain":88,"ethics":90,"tariffs":78,"emissions":86,"supplier":88,"geo":96}}
+  ],
+
+  "MDF & Particleboard": [
+    {"name":"Pfleiderer Group",         "city":"Neumarkt, DE",       "loc":[49.28, 11.46],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Egger Group",              "city":"St Johann, AT",      "loc":[47.52, 12.43],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Arauco",                   "city":"Santiago, CL",       "loc":[-33.45,-70.67], "scores":{"cost":66,"speed":64,"resilience":68,"sustain":72,"ethics":74,"tariffs":58,"emissions":70,"supplier":68,"geo":70}},
+    {"name":"Duratex",                  "city":"São Paulo, BR",      "loc":[-23.55,-46.63], "scores":{"cost":66,"speed":64,"resilience":64,"sustain":68,"ethics":68,"tariffs":48,"emissions":66,"supplier":64,"geo":60}},
+    {"name":"Kronospan",                "city":"Brest, BY",          "loc":[52.10, 23.73],  "scores":{"cost":58,"speed":70,"resilience":72,"sustain":72,"ethics":70,"tariffs":52,"emissions":68,"supplier":70,"geo":52}},
+    {"name":"Louisiana-Pacific",        "city":"Nashville, US",      "loc":[36.17,-86.78],  "scores":{"cost":54,"speed":88,"resilience":86,"sustain":74,"ethics":86,"tariffs":96,"emissions":72,"supplier":84,"geo":96}}
+  ],
+
+  "Steel Frames": [
+    {"name":"NUCOR Corp",               "city":"Charlotte, US",      "loc":[35.23,-80.84],  "scores":{"cost":50,"speed":92,"resilience":90,"sustain":78,"ethics":90,"tariffs":96,"emissions":78,"supplier":90,"geo":96}},
+    {"name":"ArcelorMittal",            "city":"Luxembourg City, LU","loc":[49.61,  6.13],  "scores":{"cost":50,"speed":80,"resilience":90,"sustain":82,"ethics":88,"tariffs":76,"emissions":82,"supplier":90,"geo":94}},
+    {"name":"Tata Steel",               "city":"Mumbai, IN",         "loc":[19.08, 72.88],  "scores":{"cost":68,"speed":64,"resilience":70,"sustain":64,"ethics":72,"tariffs":62,"emissions":60,"supplier":70,"geo":68}},
+    {"name":"Nippon Steel",             "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"SSAB",                     "city":"Stockholm, SE",      "loc":[59.33, 18.07],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":92,"ethics":92,"tariffs":76,"emissions":92,"supplier":92,"geo":94}},
+    {"name":"Baosteel",                 "city":"Shanghai, CN",       "loc":[31.23,121.47],  "scores":{"cost":82,"speed":78,"resilience":54,"sustain":46,"ethics":50,"tariffs":26,"emissions":46,"supplier":58,"geo":38}}
+  ],
+
+  "Foam & Padding": [
+    {"name":"Recticel NV",              "city":"Brussels, BE",       "loc":[50.85,  4.35],  "scores":{"cost":48,"speed":76,"resilience":88,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":94}},
+    {"name":"Leggett & Platt",          "city":"Carthage, US",       "loc":[37.18,-94.32],  "scores":{"cost":56,"speed":86,"resilience":84,"sustain":72,"ethics":84,"tariffs":96,"emissions":70,"supplier":82,"geo":96}},
+    {"name":"Foamex International",     "city":"Linwood, US",        "loc":[39.82,-75.40],  "scores":{"cost":58,"speed":84,"resilience":82,"sustain":70,"ethics":82,"tariffs":96,"emissions":68,"supplier":80,"geo":96}},
+    {"name":"Joyce Foam",               "city":"Melbourne, AU",      "loc":[-37.81,144.96], "scores":{"cost":58,"speed":76,"resilience":78,"sustain":72,"ethics":80,"tariffs":72,"emissions":68,"supplier":76,"geo":84}},
+    {"name":"Eurofoam",                 "city":"Linz, AT",           "loc":[48.31, 14.29],  "scores":{"cost":48,"speed":74,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":94}}
+  ],
+
+  "Fabric Upholstery": [
+    {"name":"Majilite Corp",            "city":"Shirley, US",        "loc":[42.55,-71.65],  "scores":{"cost":54,"speed":86,"resilience":82,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":82,"geo":96}},
+    {"name":"Kovi Fabrics",             "city":"Atlanta, US",        "loc":[33.75,-84.39],  "scores":{"cost":56,"speed":84,"resilience":82,"sustain":72,"ethics":84,"tariffs":96,"emissions":70,"supplier":80,"geo":96}},
+    {"name":"Guilford Mills",           "city":"Greensboro, US",     "loc":[36.07,-79.79],  "scores":{"cost":56,"speed":84,"resilience":82,"sustain":72,"ethics":84,"tariffs":96,"emissions":70,"supplier":80,"geo":96}},
+    {"name":"Kvadrat A/S",              "city":"Ebeltoft, DK",       "loc":[56.20, 10.68],  "scores":{"cost":42,"speed":72,"resilience":90,"sustain":90,"ethics":92,"tariffs":74,"emissions":88,"supplier":90,"geo":94}},
+    {"name":"Camira Fabrics",           "city":"Huddersfield, UK",   "loc":[53.65, -1.78],  "scores":{"cost":46,"speed":76,"resilience":88,"sustain":86,"ethics":90,"tariffs":70,"emissions":84,"supplier":88,"geo":92}}
+  ],
+
+  "Hardware & Fittings": [
+    {"name":"Häfele GmbH",              "city":"Nagold, DE",         "loc":[48.55,  8.72],  "scores":{"cost":44,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Blum GmbH",                "city":"Höchst, AT",         "loc":[47.48,  9.87],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Grass GmbH",               "city":"Götzis, AT",         "loc":[47.33,  9.63],  "scores":{"cost":44,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Sugatsune Kogyo",          "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":82,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"King Slide Co",            "city":"Tainan, TW",         "loc":[22.99,120.21],  "scores":{"cost":64,"speed":76,"resilience":72,"sustain":66,"ethics":72,"tariffs":60,"emissions":64,"supplier":72,"geo":56}},
+    {"name":"Richelieu Hardware",       "city":"Montreal, CA",       "loc":[45.50,-73.57],  "scores":{"cost":58,"speed":82,"resilience":82,"sustain":74,"ethics":82,"tariffs":90,"emissions":72,"supplier":80,"geo":92}}
+  ],
+
+  "High-Strength Steel": [
+    {"name":"ArcelorMittal",            "city":"Luxembourg City, LU","loc":[49.61,  6.13],  "scores":{"cost":50,"speed":80,"resilience":90,"sustain":82,"ethics":88,"tariffs":76,"emissions":82,"supplier":90,"geo":94}},
+    {"name":"Nippon Steel",             "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"POSCO",                    "city":"Pohang, KR",         "loc":[36.02,129.34],  "scores":{"cost":56,"speed":82,"resilience":86,"sustain":78,"ethics":84,"tariffs":70,"emissions":74,"supplier":84,"geo":82}},
+    {"name":"Baosteel",                 "city":"Shanghai, CN",       "loc":[31.23,121.47],  "scores":{"cost":82,"speed":78,"resilience":54,"sustain":46,"ethics":50,"tariffs":26,"emissions":46,"supplier":58,"geo":38}},
+    {"name":"Tata Steel",               "city":"Mumbai, IN",         "loc":[19.08, 72.88],  "scores":{"cost":68,"speed":64,"resilience":70,"sustain":64,"ethics":72,"tariffs":62,"emissions":60,"supplier":70,"geo":68}},
+    {"name":"ThyssenKrupp Steel",       "city":"Duisburg, DE",       "loc":[51.43,  6.76],  "scores":{"cost":46,"speed":80,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":94}},
+    {"name":"Nucor Corp",               "city":"Charlotte, US",      "loc":[35.23,-80.84],  "scores":{"cost":50,"speed":92,"resilience":90,"sustain":80,"ethics":90,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"SSAB",                     "city":"Stockholm, SE",      "loc":[59.33, 18.07],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":92,"ethics":92,"tariffs":76,"emissions":92,"supplier":92,"geo":94}},
+    {"name":"US Steel",                 "city":"Pittsburgh, US",     "loc":[40.44,-79.99],  "scores":{"cost":52,"speed":90,"resilience":88,"sustain":76,"ethics":88,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"JSW Steel",                "city":"Mumbai, IN",         "loc":[19.08, 72.88],  "scores":{"cost":70,"speed":62,"resilience":68,"sustain":62,"ethics":70,"tariffs":62,"emissions":58,"supplier":68,"geo":68}},
+    {"name":"Gerdau SA",                "city":"Porto Alegre, BR",   "loc":[-30.03,-51.23], "scores":{"cost":66,"speed":64,"resilience":66,"sustain":66,"ethics":68,"tariffs":48,"emissions":64,"supplier":66,"geo":62}},
+    {"name":"Outokumpu",                "city":"Helsinki, FI",       "loc":[60.17, 24.94],  "scores":{"cost":44,"speed":74,"resilience":90,"sustain":88,"ethics":90,"tariffs":74,"emissions":88,"supplier":90,"geo":94}}
+  ],
+
+  "Wiring Harnesses": [
+    {"name":"Aptiv PLC",                "city":"Dublin, IE",         "loc":[53.35, -6.26],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":82,"ethics":90,"tariffs":72,"emissions":82,"supplier":88,"geo":94}},
+    {"name":"Yazaki Corp",              "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Sumitomo Electric",        "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":52,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Delphi Technologies",      "city":"Coventry, UK",       "loc":[52.41, -1.51],  "scores":{"cost":48,"speed":80,"resilience":88,"sustain":82,"ethics":90,"tariffs":70,"emissions":82,"supplier":88,"geo":92}},
+    {"name":"Leoni AG",                 "city":"Nuremberg, DE",      "loc":[49.45, 11.08],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":94}},
+    {"name":"Lear Corp",                "city":"Southfield, US",     "loc":[42.47,-83.22],  "scores":{"cost":50,"speed":92,"resilience":88,"sustain":78,"ethics":90,"tariffs":96,"emissions":78,"supplier":88,"geo":96}},
+    {"name":"Motherson Group",          "city":"Delhi, IN",          "loc":[28.61, 77.21],  "scores":{"cost":70,"speed":62,"resilience":68,"sustain":62,"ethics":68,"tariffs":62,"emissions":58,"supplier":68,"geo":68}},
+    {"name":"PKC Group",                "city":"Kempele, FI",        "loc":[64.92, 25.50],  "scores":{"cost":44,"speed":74,"resilience":92,"sustain":90,"ethics":94,"tariffs":76,"emissions":90,"supplier":92,"geo":94}},
+    {"name":"Furukawa Electric",        "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":54,"speed":84,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Coroplast",                "city":"Wuppertal, DE",      "loc":[51.26,  7.19],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":94}},
+    {"name":"Nexans SA",                "city":"Paris, FR",          "loc":[48.86,  2.35],  "scores":{"cost":48,"speed":78,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":92}},
+    {"name":"Prysmian Group",           "city":"Milan, IT",          "loc":[45.46,  9.19],  "scores":{"cost":48,"speed":78,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":92}}
+  ],
+
+  "Rubber Seals & Gaskets": [
+    {"name":"Freudenberg SE",           "city":"Weinheim, DE",       "loc":[49.55,  8.67],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}},
+    {"name":"Parker Hannifin",          "city":"Cleveland, US",      "loc":[41.50,-81.69],  "scores":{"cost":50,"speed":92,"resilience":90,"sustain":80,"ethics":92,"tariffs":96,"emissions":80,"supplier":90,"geo":96}},
+    {"name":"Trelleborg AB",            "city":"Trelleborg, SE",     "loc":[55.37, 13.16],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":90,"ethics":92,"tariffs":76,"emissions":90,"supplier":92,"geo":94}},
+    {"name":"NOK Corp",                 "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":82,"ethics":88,"tariffs":70,"emissions":80,"supplier":88,"geo":90}},
+    {"name":"SKF Group",                "city":"Gothenburg, SE",     "loc":[57.71, 11.97],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":90,"ethics":92,"tariffs":76,"emissions":90,"supplier":92,"geo":94}},
+    {"name":"Dana Inc.",                "city":"Maumee, US",         "loc":[41.57,-83.65],  "scores":{"cost":50,"speed":92,"resilience":88,"sustain":78,"ethics":90,"tariffs":96,"emissions":78,"supplier":88,"geo":96}},
+    {"name":"ElringKlinger",            "city":"Dettingen, DE",      "loc":[48.44,  9.34],  "scores":{"cost":44,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":94}},
+    {"name":"Hutchinson SA",            "city":"Paris, FR",          "loc":[48.86,  2.35],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":88,"supplier":90,"geo":92}},
+    {"name":"Zeon Corporation",         "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":54,"speed":84,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Toyoda Gosei",             "city":"Nagoya, JP",         "loc":[35.18,136.91],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Saint-Gobain Seals",       "city":"Courbevoie, FR",     "loc":[48.90,  2.25],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":92}},
+    {"name":"Nok Freudenberg",          "city":"Stuttgart, DE",      "loc":[48.78,  9.18],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":88,"supplier":92,"geo":94}}
+  ],
+
+  "Aluminum Castings": [
+    {"name":"Nemak",                    "city":"Monterrey, MX",      "loc":[25.67,-100.31], "scores":{"cost":66,"speed":72,"resilience":72,"sustain":68,"ethics":72,"tariffs":76,"emissions":66,"supplier":72,"geo":78}},
+    {"name":"Rheinmetall Automotive",   "city":"Neckarsulm, DE",     "loc":[49.19,  9.23],  "scores":{"cost":46,"speed":78,"resilience":90,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":94}},
+    {"name":"Martinrea International",  "city":"Vaughan, CA",        "loc":[43.84,-79.53],  "scores":{"cost":54,"speed":82,"resilience":84,"sustain":74,"ethics":84,"tariffs":90,"emissions":72,"supplier":82,"geo":92}},
+    {"name":"Novelis Inc",              "city":"Atlanta, US",        "loc":[33.75,-84.39],  "scores":{"cost":52,"speed":86,"resilience":86,"sustain":78,"ethics":86,"tariffs":96,"emissions":76,"supplier":84,"geo":96}},
+    {"name":"Constellium SE",           "city":"Paris, FR",          "loc":[48.86,  2.35],  "scores":{"cost":50,"speed":76,"resilience":88,"sustain":84,"ethics":86,"tariffs":76,"emissions":82,"supplier":86,"geo":92}},
+    {"name":"Norsk Hydro",              "city":"Oslo, NO",           "loc":[59.91, 10.75],  "scores":{"cost":46,"speed":74,"resilience":90,"sustain":90,"ethics":90,"tariffs":74,"emissions":90,"supplier":88,"geo":94}}
+  ],
+
+  "Electronic Control Units": [
+    {"name":"Bosch Automotive",         "city":"Stuttgart, DE",      "loc":[48.78,  9.18],  "scores":{"cost":46,"speed":80,"resilience":92,"sustain":86,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"Continental AG",           "city":"Hannover, DE",       "loc":[52.37,  9.74],  "scores":{"cost":46,"speed":80,"resilience":90,"sustain":84,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Denso Corporation",        "city":"Kariya, JP",         "loc":[34.99,137.17],  "scores":{"cost":52,"speed":84,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Delphi Technologies",      "city":"Coventry, UK",       "loc":[52.41, -1.51],  "scores":{"cost":48,"speed":80,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":80,"supplier":88,"geo":92}},
+    {"name":"Visteon Corp",             "city":"Van Buren, US",      "loc":[42.27,-83.28],  "scores":{"cost":52,"speed":86,"resilience":86,"sustain":74,"ethics":86,"tariffs":96,"emissions":74,"supplier":84,"geo":96}},
+    {"name":"Marelli Holdings",         "city":"Saitama, JP",        "loc":[35.86,139.65],  "scores":{"cost":54,"speed":82,"resilience":86,"sustain":78,"ethics":86,"tariffs":70,"emissions":76,"supplier":84,"geo":88}}
+  ],
+
+  "Glass & Glazing": [
+    {"name":"AGC Inc",                  "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":82,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":80,"supplier":90,"geo":90}},
+    {"name":"Saint-Gobain",             "city":"Courbevoie, FR",     "loc":[48.90,  2.25],  "scores":{"cost":48,"speed":78,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":86,"supplier":90,"geo":92}},
+    {"name":"NSG Group",                "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":80,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Guardian Industries",      "city":"Auburn Hills, US",   "loc":[42.67,-83.24],  "scores":{"cost":52,"speed":88,"resilience":88,"sustain":74,"ethics":86,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Pilkington",               "city":"St Helens, UK",      "loc":[53.46, -2.74],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":92}},
+    {"name":"Fuyao Glass",              "city":"Fuzhou, CN",         "loc":[26.07,119.30],  "scores":{"cost":78,"speed":76,"resilience":58,"sustain":52,"ethics":56,"tariffs":26,"emissions":52,"supplier":62,"geo":40}}
+  ],
+
+  "Plastics & Polymers": [
+    {"name":"BASF SE",                  "city":"Ludwigshafen, DE",   "loc":[49.48,  8.43],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"SABIC",                    "city":"Riyadh, SA",         "loc":[24.69, 46.72],  "scores":{"cost":60,"speed":72,"resilience":74,"sustain":66,"ethics":70,"tariffs":60,"emissions":62,"supplier":72,"geo":60}},
+    {"name":"LyondellBasell",           "city":"Rotterdam, NL",      "loc":[51.92,  4.48],  "scores":{"cost":50,"speed":76,"resilience":88,"sustain":80,"ethics":86,"tariffs":76,"emissions":78,"supplier":86,"geo":94}},
+    {"name":"Dow Chemical",             "city":"Midland, US",        "loc":[43.62,-84.23],  "scores":{"cost":52,"speed":88,"resilience":90,"sustain":78,"ethics":88,"tariffs":96,"emissions":76,"supplier":88,"geo":96}},
+    {"name":"Covestro AG",              "city":"Leverkusen, DE",     "loc":[51.05,  6.98],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Celanese Corp",            "city":"Dallas, US",         "loc":[32.78,-96.80],  "scores":{"cost":54,"speed":86,"resilience":88,"sustain":74,"ethics":86,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Evonik Industries",        "city":"Essen, DE",          "loc":[51.46,  7.01],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}}
+  ],
+
+  "Active Pharmaceutical Ingredients": [
+    {"name":"Lonza Group",              "city":"Basel, CH",          "loc":[47.56,  7.59],  "scores":{"cost":42,"speed":74,"resilience":92,"sustain":88,"ethics":92,"tariffs":78,"emissions":86,"supplier":92,"geo":96}},
+    {"name":"Cambrex Corporation",      "city":"East Rutherford, US","loc":[40.82,-74.09],  "scores":{"cost":50,"speed":84,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"Siegfried Holding",        "city":"Zofingen, CH",       "loc":[47.29,  7.95],  "scores":{"cost":42,"speed":74,"resilience":92,"sustain":88,"ethics":92,"tariffs":78,"emissions":86,"supplier":92,"geo":96}},
+    {"name":"Aurobindo Pharma",         "city":"Hyderabad, IN",      "loc":[17.39, 78.49],  "scores":{"cost":78,"speed":64,"resilience":66,"sustain":60,"ethics":66,"tariffs":62,"emissions":56,"supplier":66,"geo":66}},
+    {"name":"Sun Pharmaceutical",       "city":"Mumbai, IN",         "loc":[19.08, 72.88],  "scores":{"cost":76,"speed":66,"resilience":68,"sustain":62,"ethics":68,"tariffs":62,"emissions":58,"supplier":68,"geo":68}},
+    {"name":"Dr. Reddy's",              "city":"Hyderabad, IN",      "loc":[17.39, 78.49],  "scores":{"cost":76,"speed":66,"resilience":68,"sustain":64,"ethics":70,"tariffs":62,"emissions":58,"supplier":70,"geo":66}},
+    {"name":"Boehringer Ingelheim",     "city":"Ingelheim, DE",      "loc":[49.97,  8.07],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"Samsung Biologics",        "city":"Incheon, KR",        "loc":[37.46,126.71],  "scores":{"cost":58,"speed":80,"resilience":84,"sustain":76,"ethics":84,"tariffs":70,"emissions":72,"supplier":84,"geo":82}}
+  ],
+
+  "Excipients": [
+    {"name":"IMCD Group",               "city":"Rotterdam, NL",      "loc":[51.92,  4.48],  "scores":{"cost":50,"speed":76,"resilience":88,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":94}},
+    {"name":"Roquette Frères",          "city":"Lestrem, FR",        "loc":[50.64,  2.64],  "scores":{"cost":48,"speed":74,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":92}},
+    {"name":"Ashland Global",           "city":"Covington, US",      "loc":[39.08,-84.51],  "scores":{"cost":54,"speed":84,"resilience":86,"sustain":74,"ethics":86,"tariffs":96,"emissions":72,"supplier":84,"geo":96}},
+    {"name":"Colorcon Inc",             "city":"Harleysville, US",   "loc":[40.28,-75.40],  "scores":{"cost":54,"speed":84,"resilience":86,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"JRS Pharma",               "city":"Rosenberg, DE",      "loc":[48.85,  8.10],  "scores":{"cost":46,"speed":74,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}}
+  ],
+
+  "Glass Vials & Packaging": [
+    {"name":"Gerresheimer AG",          "city":"Düsseldorf, DE",     "loc":[51.23,  6.78],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Schott AG",                "city":"Mainz, DE",          "loc":[49.99,  8.27],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"Stevanato Group",          "city":"Piombino Dese, IT",  "loc":[45.67, 11.87],  "scores":{"cost":48,"speed":74,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":92}},
+    {"name":"West Pharmaceutical",      "city":"Exton, US",          "loc":[40.03,-75.62],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"Nipro Corporation",        "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":54,"speed":82,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}}
+  ],
+
+  "Chemical Reagents": [
+    {"name":"Merck KGaA",               "city":"Darmstadt, DE",      "loc":[49.87,  8.65],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"Thermo Fisher Scientific","city":"Waltham, US",         "loc":[42.38,-71.24],  "scores":{"cost":48,"speed":86,"resilience":90,"sustain":78,"ethics":92,"tariffs":96,"emissions":76,"supplier":90,"geo":96}},
+    {"name":"Avantor Inc",              "city":"Radnor, US",         "loc":[40.05,-75.35],  "scores":{"cost":50,"speed":84,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"VWR International",        "city":"Radnor, US",         "loc":[40.05,-75.35],  "scores":{"cost":50,"speed":84,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Solvay SA",                "city":"Brussels, BE",       "loc":[50.85,  4.35],  "scores":{"cost":48,"speed":76,"resilience":88,"sustain":84,"ethics":88,"tariffs":76,"emissions":82,"supplier":88,"geo":94}}
+  ],
+
+  "Biologics Raw Materials": [
+    {"name":"Cytiva (Danaher)",         "city":"Marlborough, US",    "loc":[42.35,-71.55],  "scores":{"cost":46,"speed":82,"resilience":90,"sustain":78,"ethics":92,"tariffs":96,"emissions":74,"supplier":90,"geo":96}},
+    {"name":"Sartorius AG",             "city":"Göttingen, DE",      "loc":[51.54,  9.93],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":86,"ethics":92,"tariffs":76,"emissions":84,"supplier":92,"geo":94}},
+    {"name":"Merck KGaA LS",            "city":"Darmstadt, DE",      "loc":[49.87,  8.65],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":88,"ethics":92,"tariffs":76,"emissions":86,"supplier":92,"geo":94}},
+    {"name":"Repligen Corp",            "city":"Waltham, US",        "loc":[42.38,-71.24],  "scores":{"cost":48,"speed":82,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"Fujifilm Diosynth",        "city":"Billingham, UK",     "loc":[54.61, -1.28],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":80,"ethics":90,"tariffs":70,"emissions":78,"supplier":88,"geo":92}}
+  ],
+
+  "Sterile Filtration": [
+    {"name":"Pall Corporation",         "city":"Port Washington, US","loc":[40.83,-73.70],  "scores":{"cost":50,"speed":84,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"Sartorius Stedim",         "city":"Aubagne, FR",        "loc":[43.29,  5.57],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":84,"ethics":90,"tariffs":76,"emissions":82,"supplier":90,"geo":92}},
+    {"name":"Merck Millipore",          "city":"Burlington, US",     "loc":[42.51,-71.19],  "scores":{"cost":50,"speed":82,"resilience":88,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"3M Purification",          "city":"Minneapolis, US",    "loc":[44.98,-93.27],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Parker Hannifin BioScience","city":"Haverhill, US",     "loc":[42.78,-71.08],  "scores":{"cost":52,"speed":82,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}}
+  ],
+
+  "Cold Chain Packaging": [
+    {"name":"Pelican BioThermal",       "city":"Plymouth, US",       "loc":[44.97,-93.46],  "scores":{"cost":52,"speed":84,"resilience":86,"sustain":70,"ethics":86,"tariffs":96,"emissions":68,"supplier":84,"geo":96}},
+    {"name":"Sonoco ThermoSafe",        "city":"Arlington Heights, US","loc":[42.09,-87.98],"scores":{"cost":54,"speed":82,"resilience":84,"sustain":70,"ethics":84,"tariffs":96,"emissions":68,"supplier":82,"geo":96}},
+    {"name":"va-Q-tec AG",              "city":"Würzburg, DE",       "loc":[49.80,  9.95],  "scores":{"cost":46,"speed":74,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"Cold Chain Technologies", "city":"Holliston, US",       "loc":[42.20,-71.43],  "scores":{"cost":54,"speed":82,"resilience":84,"sustain":70,"ethics":86,"tariffs":96,"emissions":68,"supplier":84,"geo":96}},
+    {"name":"Sofrigam",                 "city":"Bois d'Arcy, FR",    "loc":[48.78,  2.01],  "scores":{"cost":50,"speed":74,"resilience":88,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":92}}
+  ],
+
+  "Titanium Alloys": [
+    {"name":"VSMPO-AVISMA",             "city":"Verkhnaya Salda, RU","loc":[58.05, 60.55],  "scores":{"cost":44,"speed":60,"resilience":52,"sustain":52,"ethics":52,"tariffs":28,"emissions":50,"supplier":50,"geo":20}},
+    {"name":"ATI Inc",                  "city":"Pittsburgh, US",     "loc":[40.44,-79.99],  "scores":{"cost":50,"speed":82,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Howmet Aerospace",         "city":"Pittsburgh, US",     "loc":[40.44,-79.99],  "scores":{"cost":50,"speed":80,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"TIMET",                    "city":"Dallas, US",         "loc":[32.78,-96.80],  "scores":{"cost":52,"speed":80,"resilience":86,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"Kobe Steel",               "city":"Kobe, JP",           "loc":[34.69,135.20],  "scores":{"cost":54,"speed":80,"resilience":88,"sustain":78,"ethics":88,"tariffs":70,"emissions":76,"supplier":86,"geo":90}},
+    {"name":"Osaka Titanium Technologies","city":"Osaka, JP",        "loc":[34.69,135.50],  "scores":{"cost":54,"speed":80,"resilience":88,"sustain":78,"ethics":88,"tariffs":70,"emissions":76,"supplier":86,"geo":90}}
+  ],
+
+  "Carbon Fiber Composites": [
+    {"name":"Toray Industries",         "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":50,"speed":80,"resilience":90,"sustain":82,"ethics":90,"tariffs":70,"emissions":78,"supplier":90,"geo":90}},
+    {"name":"Hexcel Corporation",       "city":"Stamford, US",       "loc":[41.05,-73.54],  "scores":{"cost":48,"speed":82,"resilience":90,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":88,"geo":96}},
+    {"name":"Solvay Cytec",             "city":"Brussels, BE",       "loc":[50.85,  4.35],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":88,"tariffs":76,"emissions":84,"supplier":88,"geo":94}},
+    {"name":"Teijin Carbon",            "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":80,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"Mitsubishi Chemical CF",   "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":80,"resilience":88,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"SGL Carbon",               "city":"Wiesbaden, DE",      "loc":[50.08,  8.24],  "scores":{"cost":46,"speed":76,"resilience":90,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}}
+  ],
+
+  "Aerospace Fasteners": [
+    {"name":"Precision Castparts",      "city":"Portland, US",       "loc":[45.52,-122.68], "scores":{"cost":48,"speed":80,"resilience":90,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":88,"geo":96}},
+    {"name":"Arconic Inc",              "city":"Pittsburgh, US",     "loc":[40.44,-79.99],  "scores":{"cost":50,"speed":80,"resilience":88,"sustain":74,"ethics":86,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"Lisi Aerospace",           "city":"Villeurbanne, FR",   "loc":[45.77,  4.88],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":92}},
+    {"name":"SPS Technologies",         "city":"Jenkintown, US",     "loc":[40.09,-75.13],  "scores":{"cost":50,"speed":80,"resilience":88,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":84,"geo":96}},
+    {"name":"Stanley Black & Decker Aero","city":"New Britain, US",  "loc":[41.67,-72.78],  "scores":{"cost":52,"speed":78,"resilience":86,"sustain":70,"ethics":84,"tariffs":96,"emissions":70,"supplier":82,"geo":96}}
+  ],
+
+  "Avionics Components": [
+    {"name":"Honeywell Aerospace",      "city":"Phoenix, US",        "loc":[33.45,-112.07], "scores":{"cost":48,"speed":80,"resilience":92,"sustain":76,"ethics":90,"tariffs":96,"emissions":74,"supplier":90,"geo":96}},
+    {"name":"Collins Aerospace",        "city":"Windsor Locks, US",  "loc":[41.93,-72.62],  "scores":{"cost":48,"speed":80,"resilience":92,"sustain":74,"ethics":90,"tariffs":96,"emissions":72,"supplier":90,"geo":96}},
+    {"name":"Thales Avionics",          "city":"Bordeaux, FR",       "loc":[44.84, -0.58],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":80,"ethics":88,"tariffs":76,"emissions":78,"supplier":88,"geo":92}},
+    {"name":"BAE Systems Electronics", "city":"Rochester, UK",       "loc":[51.38, -0.50],  "scores":{"cost":50,"speed":76,"resilience":90,"sustain":78,"ethics":88,"tariffs":70,"emissions":76,"supplier":88,"geo":92}},
+    {"name":"Leonardo DRS",             "city":"Arlington, US",      "loc":[38.88,-77.10],  "scores":{"cost":50,"speed":80,"resilience":90,"sustain":72,"ethics":88,"tariffs":96,"emissions":70,"supplier":88,"geo":96}}
+  ],
+
+  "Hydraulic Systems": [
+    {"name":"Parker Hannifin",          "city":"Cleveland, US",      "loc":[41.50,-81.69],  "scores":{"cost":50,"speed":88,"resilience":90,"sustain":78,"ethics":90,"tariffs":96,"emissions":76,"supplier":90,"geo":96}},
+    {"name":"Eaton Aerospace",          "city":"Dublin, IE",         "loc":[53.35, -6.26],  "scores":{"cost":50,"speed":78,"resilience":88,"sustain":80,"ethics":88,"tariffs":72,"emissions":78,"supplier":88,"geo":94}},
+    {"name":"Moog Inc",                 "city":"East Aurora, US",    "loc":[42.77,-78.62],  "scores":{"cost":50,"speed":80,"resilience":90,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":88,"geo":96}},
+    {"name":"Liebherr Aerospace",       "city":"Toulouse, FR",       "loc":[43.60,  1.44],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":92}},
+    {"name":"Triumph Group",            "city":"Wayne, US",          "loc":[40.04,-75.40],  "scores":{"cost":50,"speed":80,"resilience":88,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":86,"geo":96}}
+  ],
+
+  "Thermal Insulation": [
+    {"name":"Safran Nacelles",          "city":"Le Havre, FR",       "loc":[49.49,  0.11],  "scores":{"cost":48,"speed":74,"resilience":90,"sustain":82,"ethics":88,"tariffs":76,"emissions":80,"supplier":88,"geo":92}},
+    {"name":"Hexcel Composites",        "city":"Stamford, US",       "loc":[41.05,-73.54],  "scores":{"cost":48,"speed":80,"resilience":90,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":88,"geo":96}},
+    {"name":"Lydall Inc",               "city":"Manchester, US",     "loc":[41.78,-72.52],  "scores":{"cost":52,"speed":78,"resilience":86,"sustain":70,"ethics":84,"tariffs":96,"emissions":68,"supplier":82,"geo":96}},
+    {"name":"Unifrax LLC",              "city":"Tonawanda, US",      "loc":[43.00,-78.88],  "scores":{"cost":54,"speed":78,"resilience":86,"sustain":68,"ethics":82,"tariffs":96,"emissions":66,"supplier":80,"geo":96}},
+    {"name":"Morgan Advanced Materials","city":"Windsor, UK",        "loc":[51.48, -0.61],  "scores":{"cost":48,"speed":76,"resilience":90,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":92}}
+  ],
+
+  "Precision Bearings": [
+    {"name":"SKF Group",                "city":"Gothenburg, SE",     "loc":[57.71, 11.97],  "scores":{"cost":44,"speed":76,"resilience":92,"sustain":90,"ethics":92,"tariffs":76,"emissions":90,"supplier":92,"geo":94}},
+    {"name":"Schaeffler AG",            "city":"Herzogenaurach, DE", "loc":[49.57, 10.89],  "scores":{"cost":44,"speed":78,"resilience":92,"sustain":86,"ethics":90,"tariffs":76,"emissions":84,"supplier":90,"geo":94}},
+    {"name":"NSK Ltd",                  "city":"Tokyo, JP",          "loc":[35.68,139.69],  "scores":{"cost":52,"speed":82,"resilience":90,"sustain":80,"ethics":88,"tariffs":70,"emissions":78,"supplier":88,"geo":90}},
+    {"name":"NTN Corporation",          "city":"Osaka, JP",          "loc":[34.69,135.50],  "scores":{"cost":52,"speed":82,"resilience":88,"sustain":78,"ethics":88,"tariffs":70,"emissions":76,"supplier":88,"geo":90}},
+    {"name":"Timken Company",           "city":"North Canton, US",   "loc":[40.87,-81.40],  "scores":{"cost":52,"speed":86,"resilience":88,"sustain":74,"ethics":88,"tariffs":96,"emissions":72,"supplier":86,"geo":96}},
+    {"name":"RBC Bearings",             "city":"Oxford, US",         "loc":[41.43,-73.11],  "scores":{"cost":52,"speed":84,"resilience":88,"sustain":72,"ethics":86,"tariffs":96,"emissions":70,"supplier":84,"geo":96}}
+  ]
+}
