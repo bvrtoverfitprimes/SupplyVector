@@ -344,7 +344,22 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
   const routes = [];
   const numRoutes = 4;
 
-  // For each component, get top candidates
+  // Create a priority-based seed for randomization
+  const prioritySeed = Object.values(priorities).reduce((a, b) => a + b, 0);
+
+  // Weighted random selection helper
+  function weightedShuffle(arr, seed) {
+    const shuffled = arr.map((item, idx) => {
+      // Add randomization based on score and seed
+      const randomFactor = (Math.sin(seed * (idx + 1) * 0.1) + 1) * 50;
+      const adjustedScore = item.score + randomFactor;
+      return { ...item, sortKey: adjustedScore };
+    });
+    shuffled.sort((a, b) => b.sortKey - a.sortKey);
+    return shuffled;
+  }
+
+  // For each component, get top candidates with randomization
   const componentCandidates = {};
   for (const comp of components) {
     const providerList = providers[comp] || [];
@@ -353,15 +368,28 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
       ...SV_pickBest([p], priorities, origin, destination)
     }));
     scored.sort((a, b) => b.score - a.score);
-    componentCandidates[comp] = scored.slice(0, Math.min(3, scored.length));
+
+    // Apply weighted shuffle to introduce variety based on priorities
+    const shuffled = weightedShuffle(scored, prioritySeed + comp.length);
+    componentCandidates[comp] = shuffled.slice(0, Math.min(4, shuffled.length));
   }
+
+  // Track unique route combinations
+  const seenCombinations = new Set();
 
   // Generate route combinations
   function generateRoutes(compIndex, currentRoute, usedProviders) {
     if (compIndex >= components.length) {
-      // Calculate route-level score
+      // Check if this combination is unique
       const routeProviders = Object.values(currentRoute);
+      const combinationKey = routeProviders.map(p => `${p.name}|${p.city}`).sort().join('::');
 
+      if (seenCombinations.has(combinationKey)) {
+        return; // Skip duplicate combinations
+      }
+      seenCombinations.add(combinationKey);
+
+      // Calculate route-level score
       // 1. Average provider scores (60% weight)
       const avgProviderScore = routeProviders.reduce((sum, p) => sum + p.score, 0) / routeProviders.length;
 
@@ -390,7 +418,8 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
         providers: { ...currentRoute },
         score: finalScore + tieBreaker,
         diversityScore,
-        concentrationScore
+        concentrationScore,
+        combinationKey
       });
       return;
     }
@@ -398,11 +427,18 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
     const comp = components[compIndex];
     const candidates = componentCandidates[comp] || [];
 
-    for (const candidate of candidates) {
+    // Add variation in selection order based on priority seed
+    const candidateOrder = candidates.map((c, idx) => ({
+      candidate: c,
+      orderKey: (Math.sin(prioritySeed * (compIndex + 1) * (idx + 1) * 0.01) + 1) * 100
+    }));
+    candidateOrder.sort((a, b) => b.orderKey - a.orderKey);
+
+    for (const { candidate } of candidateOrder) {
       const providerKey = `${candidate.city}|${candidate.name}`;
 
       // Allow reusing providers but prefer diversity
-      const penalty = usedProviders.has(providerKey) ? 5 : 0;
+      const penalty = usedProviders.has(providerKey) ? 8 : 0;
       const adjustedCandidate = { ...candidate, score: candidate.score - penalty };
 
       const newUsedProviders = new Set(usedProviders);
@@ -415,13 +451,13 @@ window.SV_optimizeRoutes = function (components, providers, priorities, origin, 
       );
 
       // Limit combinations to avoid explosion
-      if (routes.length >= numRoutes * 10) break;
+      if (routes.length >= numRoutes * 15) break;
     }
   }
 
   generateRoutes(0, {}, new Set());
 
-  // Sort routes by score and return top N
+  // Sort routes by score and return top N unique routes
   routes.sort((a, b) => b.score - a.score);
   const topRoutes = routes.slice(0, numRoutes);
 
